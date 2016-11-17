@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="action," />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.maxSize" value="10240000" />
+    <package name="hotel" extends="struts-default" namespace="/">
+    <!-- 登录action的管理 -->
+    <action name="Login" class="LoginAction" method="login">
+    	<result name="success" type="redirect">background.jsp</result>
+    	<result name="error" type="redirect">index.jsp</result>
+    </action>
+    <action name="return" class="LoginAction" method="returnSystem">
+    	<result name="success" type="redirect">index.jsp</result>
+    </action>
+    <!-- 餐桌管理action -->
+        <action name="Dinner" class="DinnerTableAction" method="showboardList" >
+            <result name="boardList" type="redirect">/detail/boardList.jsp</result>
+        </action>
+        <action name="*Table" class="DinnerTableAction" method="{1}Table" >
+            <result name="success" type="redirect">Dinner</result>
+            <result name="error" type="redirect">Dinner</result>
+        </action>
+       <!--   <action name="deleteTable" class="cn.com.yxl.mvc.action.DinnerTableAction" method="deleteTable" >
+            <result name="success" type="redirect">Dinner</result>
+        </action>-->
+        <!-- 菜系及菜品管理 -->
+        
+    </package>
+</struts>

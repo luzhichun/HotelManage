@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="User" type="cn.edu.njtech.entity.User" />    
+    <select id="selectUser" parameterClass="User" resultClass="User">
+    	<!-- t_user是数据库的表名 -->
+       select * from users where username =#username#;
+    </select>
+	 <!--  
+	<insert id="saveUser" parameterClass="TUser">
+		insert into t_user(username,password,role)values(#username#,#password#,1)
+	</insert>
+		
+	<select id="findUserName" parameterClass="java.lang.String" resultClass="TUser">
+		select * from t_user where username = #username#;
+	</select>
+	
+	<update id="updateUser" parameterClass="TUser">
+		UPDATE t_user SET password=#password# WHERE username = #username#;
+	</update>-->
+</sqlMap>

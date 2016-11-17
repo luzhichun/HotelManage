@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!--配置数据源 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:jdbc.properties" />
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+	<!-- 配置iBatis的sqlMapClient -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" >
+			<value>classpath:/SqlMapConfig.xml</value>  
+		</property>
+		<!-- 这里使用的数据源就是上面配置的数据源 -->
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	<!-- Dao层配置 -->
+	<bean id="DinnerTableDAOImpl" class="cn.edu.njtech.dao.impl.DinnerTableDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient">
+		</property>
+	</bean>
+	<bean id="UserDAOImpl" class="cn.edu.njtech.dao.impl.UserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient">
+		</property>
+	</bean>
+	<!-- Service配置 -->
+	<bean id="DinnerTableServiceImpl" class="cn.edu.njtech.service.impl.DinnerTableServiceImpl">
+		<property name="dinnerTableDao" ref="DinnerTableDAOImpl"></property>
+	</bean>
+	<bean id="UserServiceImpl" class="cn.edu.njtech.service.impl.UserServiceImpl">
+		<property name="userDao" ref="UserDAOImpl"></property>
+	</bean>
+	<!-- Action配置 -->
+	<bean id="DinnerTableAction" class="cn.edu.njtech.mvc.action.DinnerTableAction">
+		<property name="dinnerTableService" ref="DinnerTableServiceImpl"></property>
+	</bean>
+	<bean id="LoginAction" class="cn.edu.njtech.mvc.action.LoginAction">
+		<property name="userService" ref="UserServiceImpl"></property>
+	</bean>
+	
+</beans>
