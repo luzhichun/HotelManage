@@ -6,7 +6,7 @@ import java.util.List;
 import cn.edu.njtech.entity.DinnerTable;
 
 /**
- * 餐桌DAO层
+ * 餐桌
  * @author liumingliang
  *
  */
