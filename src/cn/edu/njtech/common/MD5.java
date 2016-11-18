@@ -1,4 +1,4 @@
-package cn.edu.njtect.common;
+package cn.edu.njtech.common;
 
 public class MD5 {
 
