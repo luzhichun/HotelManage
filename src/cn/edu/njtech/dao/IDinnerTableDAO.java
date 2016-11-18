@@ -4,7 +4,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.edu.njtech.entity.DinnerTable;
-//ddd
+
+/**
+ * 
+ * @author liumingliang
+ *
+ */
 public interface IDinnerTableDAO {
 	public List<DinnerTable> selectAll(String name) throws SQLException;
 	public int addTable(DinnerTable dt)throws SQLException;
