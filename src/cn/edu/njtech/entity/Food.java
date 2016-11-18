@@ -1,84 +1,143 @@
 package cn.edu.njtech.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Food implements Serializable{
-	private int id;
-	private String foodName;
-	private int foodType_id;
+/**
+ * food:
+ */
+public class Food implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * foodId:
+	 */
+	private int foodid;
+
+	/**
+	 * foodName:
+	 */
+	private String foodname;
+
+	/**
+	 * price:
+	 */
 	private double price;
+
+	/**
+	 * mprice:
+	 */
 	private double mprice;
+
+	/**
+	 * remark:
+	 */
 	private String remark;
+
+	/**
+	 * img:
+	 */
 	private String img;
-	private String typeName;
-	
-	public String getTypeName() {
-		return typeName;
-	}
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
+
+	/**
+	 * foodtype:
+	 */
+	private Foodtype foodtype;
+
+	/**
+	 * orderdetail:
+	 */
+	private Set<Orderdetail> orderdetailSet = new HashSet<Orderdetail>(0);
+
 	public Food() {
 		super();
 	}
-	public Food(int id, String foodName, int foodTypeId, double price,
-			double mprice, String remark, String img) {
+
+	public Food(int foodid, String foodname, double price, double mprice,
+			String remark, String img, Foodtype foodtype,
+			Set<Orderdetail> orderdetailSet) {
 		super();
-		this.id = id;
-		this.foodName = foodName;
-		foodType_id = foodTypeId;
+		this.foodid = foodid;
+		this.foodname = foodname;
 		this.price = price;
 		this.mprice = mprice;
 		this.remark = remark;
 		this.img = img;
+		this.foodtype = foodtype;
+		this.orderdetailSet = orderdetailSet;
 	}
-	public int getId() {
-		return id;
+
+	public void setFoodid(int foodid) {
+		this.foodid = foodid;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public int getFoodid() {
+		return foodid;
 	}
-	public String getFoodName() {
-		return foodName;
+
+	public void setFoodname(String foodname) {
+		this.foodname = foodname;
 	}
-	public void setFoodName(String foodName) {
-		this.foodName = foodName;
+
+	public String getFoodname() {
+		return foodname;
 	}
-	public int getFoodType_id() {
-		return foodType_id;
-	}
-	public void setFoodType_id(int foodTypeId) {
-		foodType_id = foodTypeId;
-	}
-	public double getPrice() {
-		return price;
-	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public double getMprice() {
-		return mprice;
+
+	public double getPrice() {
+		return price;
 	}
+
 	public void setMprice(double mprice) {
 		this.mprice = mprice;
 	}
-	public String getRemark() {
-		return remark;
+
+	public double getMprice() {
+		return mprice;
 	}
+
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public String getImg() {
-		return img;
+
+	public String getRemark() {
+		return remark;
 	}
+
 	public void setImg(String img) {
 		this.img = img;
 	}
-	@Override
-	public String toString() {
-		return "Food [foodName=" + foodName + ", foodType_id=" + foodType_id
-				+ ", id=" + id + ", img=" + img + ", mprice=" + mprice
-				+ ", price=" + price + ", remark=" + remark + "]";
+
+	public String getImg() {
+		return img;
 	}
-	
+
+	public void setFoodtype(Foodtype foodtype) {
+		this.foodtype = foodtype;
+	}
+
+	public Foodtype getFoodtype() {
+		return foodtype;
+	}
+
+	public void setOrderdetailSet(Set<Orderdetail> orderdetailSet) {
+		this.orderdetailSet = orderdetailSet;
+	}
+
+	public Set<Orderdetail> getOrderdetailSet() {
+		return orderdetailSet;
+	}
+
+	public String toString() {
+		return "Food [foodid=" + foodid + ",foodname=" + foodname + ",price="
+				+ price + ",mprice=" + mprice + ",remark=" + remark + ",img="
+				+ img + ",foodtype=" + foodtype + ",orderdetailSet="
+				+ orderdetailSet + "]";
+	}
+
 }
