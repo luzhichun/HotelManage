@@ -2,13 +2,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
-    <typeAlias alias="DinnerTable" type="cn.edu.njtech.entity.DinnerTable" />    
-    <select id="selectTable" parameterClass="DinnerTable" resultClass="DinnerTable">
+    <typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable" />    
+    <select id="selectTable" parameterClass="Dinnertable" resultClass="Dinnertable">
     	<!-- t_user是数据库的表名 -->
-       select * from dinnerTable where tableName like concat('%', #tableName#, '%')
+       select * from dinnerTable where tablename like concat('%', #tablename#, '%')
     </select>
-    <insert id="insertTable" parameterClass="DinnerTable">
-    	insert into dinnerTable(tableName,tableStatus,orderDate) values(#tableName#,#tableStatus#,#orderDate#)
+    <insert id="insertTable" parameterClass="Dinnertable">
+    	insert into dinnerTable(tablename,tablestatus,orderdate) values(#tablename#,#tablestatus#,#orderdate#)
     	<selectKey resultClass="int" keyProperty="id">
 			SELECT @@IDENTITY AS ID
 		</selectKey>
@@ -17,9 +17,9 @@
     	delete from dinnerTable where id=#id#
     </delete>
     <update id="updateTable" parameterClass="java.lang.Integer">
-    	UPDATE dinnerTable SET tableStatus=0,orderDate=null WHERE id=#id#
+    	UPDATE dinnerTable SET tablestatus=0,orderdate=null WHERE id=#id#
     </update>
-    <select id="selectTableById" parameterClass="java.lang.Integer" resultClass="DinnerTable">
+    <select id="selectTableById" parameterClass="java.lang.Integer" resultClass="Dinnertable">
     	select * from dinnerTable where id=#id#
     </select>
 </sqlMap>

@@ -50,7 +50,7 @@
 					<table cellpadding="0" cellspacing="0" class="mainForm">
 						<tr>
 							<td width="80px">新桌名字</td>
-							<td><input type="text" name="tableName" class="InputStyle"/>*</td>
+							<td><input type="text" name="tablename" class="InputStyle"/>*</td>
 						</tr>
 					</table>
 				</div>

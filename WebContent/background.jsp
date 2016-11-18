@@ -6,12 +6,12 @@
 <title>无线点餐后台管理</title>
 </head>
 	<frameset rows="100px,*,19px" framespacing="0" border="0" frameborder="0">
-		<frame src="${pageContext.servletContext.contextPath}/detail/top.jsp" scrolling="no" noresize /> 
+		<frame src="detail/top.jsp" scrolling="no" noresize /> 
 		<frameset cols="178px,*">
-			<frame noresize src="${pageContext.servletContext.contextPath}/detail/left.jsp" scrolling="yes" /> 
-			<frame noresize name="right" src="${pageContext.servletContext.contextPath}/detail/right.jsp" scrolling="yes" /> 
+			<frame noresize src="detail/left.jsp" scrolling="yes" /> 
+			<frame noresize name="right" src="detail/right.jsp" scrolling="yes" /> 
 		</frameset>
-		<frame noresize name="status_bar" scrolling="no" src="${pageContext.servletContext.contextPath}/detail/bottom.jsp" />
+		<frame noresize name="status_bar" scrolling="no" src="detail/bottom.jsp" />
 	</frameset>
 	<noframes>
 		<body>

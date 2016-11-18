@@ -5,7 +5,7 @@
     <typeAlias alias="User" type="cn.edu.njtech.entity.User" />    
     <select id="selectUser" parameterClass="User" resultClass="User">
     	<!-- t_user是数据库的表名 -->
-       select * from users where username =#username#;
+       select * from user where name =#name#;
     </select>
 	 <!--  
 	<insert id="saveUser" parameterClass="TUser">

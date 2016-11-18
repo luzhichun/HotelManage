@@ -73,7 +73,7 @@
 						<c:forEach items="${list}" var="dt">
 							<li>
 							<input type="hidden" name="id" value="${dt.id}">
-							<a href="${pageContext.servletContext.contextPath}/caidan">
+							<a href="caidan">
 								${dt.tableName}&nbsp;
 							</a>
 						</li>

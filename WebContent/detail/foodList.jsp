@@ -27,7 +27,7 @@
 
 	<!-- 过滤条件 -->
 	<div id="QueryArea">
-		<form action="${pageContext.servletContext.contextPath}/foodList" method="post">
+		<form action="foodList" method="post">
 			<input type="hidden" name="method" value="search">
 			<input type="text" name="keyword" title="请输入菜品名称">
 			<input type="submit" value="搜索">
@@ -58,8 +58,8 @@
 						<td>${f.price}&nbsp;</td>
 		                <td>${f.mprice}&nbsp;</td>
 						<td>
-							<a href="${pageContext.servletContext.contextPath}/selectById?id=${f.id}"  class="FunctionButton">更新</a>				
-							<a href="${pageContext.servletContext.contextPath}/deleteFood?id=${f.id}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
+							<a href="selectById?id=${f.id}"  class="FunctionButton">更新</a>				
+							<a href="deleteFood?id=${f.id}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 						</td>
 					</tr>
         		</c:forEach>
@@ -69,7 +69,7 @@
 	
    <!-- 其他功能超链接 -->
 	<div id="TableTail" align="center">
-		<div class="FunctionButton"><a href="${pageContext.servletContext.contextPath}/saveFood">添加</a></div>
+		<div class="FunctionButton"><a href="saveFood">添加</a></div>
     </div> 
 </div>
 </body>

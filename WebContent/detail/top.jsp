@@ -113,10 +113,9 @@ margin-left: 10px;
 		<div id="Head_1_Logo">
 			<b style="font-family: '黑体'">工大酒家信息管理平台</b> <!-- <img border="0" src="style/images/logo.png" /> -->
         </div>
-		<!-- 欢迎用户的文字 -->
 		<div id="Head_1_UserWelcome">
 			<img border="0" width="13" height="14" src="style/images/user.gif" /> 
-			您好，<b>${User.username}</b>
+			您好，<b>${User.name}</b>
 		</div>
 		<!-- 一些链接按钮 -->
 		<div id="Head_1_FunctionButton">

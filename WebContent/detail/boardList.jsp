@@ -56,17 +56,17 @@
 	        <c:forEach items="${list}" var="d" varStatus="v">
 	        	<tr class="TableDetail1">
 				<td align="center">${v.index+1}&nbsp;</td>
-				<td align="center"> ${d.tableName}&nbsp;</td>
-				<td align="center">${d.tableStatus==0?"空闲":"预定"}</td>
-				<td align="center">${d.orderDate}</td>
+				<td align="center"> ${d.tablename}&nbsp;</td>
+				<td align="center">${d.tablestatus==0?"空闲":"预定"}</td>
+				<td align="center">${d.orderdate}</td>
 				<td>
-					<c:if test="${d.tableStatus==0}">
+					<c:if test="${d.tablestatus==0}">
 						<a href="#" class="FunctionButton" onclick="return confirm('餐桌处于空闲状态不可退')">退桌</a>
 					</c:if>
-					<c:if test="${d.tableStatus==1}">
-						<a href="returnTable?id=${d.id}" class="FunctionButton">退桌</a>
+					<c:if test="${d.tablestatus==1}">
+						<a href="returnTable?id=${d.tableid}" class="FunctionButton">退桌</a>
 					</c:if>
-					<a href="deleteTable?id=${d.id}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
+					<a href="deleteTable?id=${d.tableid}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
 	        </c:forEach>

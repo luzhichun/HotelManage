@@ -1,13 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <base href="<%=basePath%>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <title>My JSP 'index.jsp' starting page</title>
     
@@ -24,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
    	<form action="Login">
-   		用户名<input type="text" name="username"/>
-   		密    码<input type="password" name="password"/>
+   		用户名<input type="text" name="name"/>
+   		密    码<input type="password" name="pwd"/>
    		<input type="submit" value="登录"/>
    	</form>
   </body>

@@ -31,6 +31,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 	}
 	public String login() throws Exception{
 		list=userService.getUser(u);
+		System.out.println(u.getName());
 		if(list.size()==0){
 			HttpServletResponse response = ServletActionContext.getResponse();			
 			response.setContentType("text/html; charset=UTF-8"); //转码

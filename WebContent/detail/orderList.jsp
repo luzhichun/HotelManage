@@ -62,9 +62,9 @@
 				 			
 				 		
 				 		<td>
-							<a href="${pageContext.servletContext.contextPath}/orderDetail?id=${o.id}" class="FunctionButton">详细</a> 
+							<a href="orderDetail?id=${o.id}" class="FunctionButton">详细</a> 
 				 			
-				 				<a href="${pageContext.servletContext.contextPath}/orderDelete?id=${o.id}" class="FunctionButton" onClick="return confirm('确定结帐？');">结账</a>
+				 				<a href="orderDelete?id=${o.id}" class="FunctionButton" onClick="return confirm('确定结帐？');">结账</a>
 				 			
 				 		</td>
 			 		</tr>

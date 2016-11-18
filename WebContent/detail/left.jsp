@@ -94,13 +94,13 @@ body {
                     <a target="right" href="Dinner">餐桌管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.servletContext.contextPath}/cuisineList">菜系管理</a>
+                	<a target="right" href="cuisineList">菜系管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.servletContext.contextPath}/foodList">菜品管理</a>
+                	<a target="right" href="foodList">菜品管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.servletContext.contextPath}/orderList">餐厅订单</a>
+                	<a target="right" href="orderList">餐厅订单</a>
 				</li>
             </ul>
         </li>

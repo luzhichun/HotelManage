@@ -73,7 +73,7 @@
 	</div>
 	<!-- 过滤条件 -->
 	<div id="QueryArea">
-		<form action="${pageContext.servletContext.contextPath}/cuisineList" method="post">
+		<form action="cuisineList" method="post">
 			<input type="hidden" name="method" value="search">
 			<input type="text" name="keyword" value="${name}"title="请输入菜系名称">
 			<input type="submit" value="搜索">
@@ -100,7 +100,7 @@
 							<td>${ot.typeName}</td>
 							<td>
 							<!-- ${pageContext.servletContext.contextPath}/deleteType?id=${ot.id} -->
-								<a href="${pageContext.servletContext.contextPath}/updateCuisine?id=${ot.id}" class="FunctionButton" >更新</a> 
+								<a href="updateCuisine?id=${ot.id}" class="FunctionButton" >更新</a> 
 								<a href="" class="FunctionButton" onclick="fun(${ot.id})">删除</a>
 							</td>
 					</tr>
