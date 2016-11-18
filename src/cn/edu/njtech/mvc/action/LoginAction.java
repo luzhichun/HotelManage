@@ -45,7 +45,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 		if(getUser==null){
 			return ERROR;
 		}
-		if(u.getPassword().equals(getUser.getPassword())){
+		if(u.getPwd().equals(getUser.getPwd())){
 			session.put("User", getUser);
 			return SUCCESS;
 		}else{

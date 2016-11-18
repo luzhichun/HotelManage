@@ -6,18 +6,18 @@ import java.util.List;
 
 import cn.edu.njtech.dao.IFoodDAO;
 import cn.edu.njtech.entity.Food;
-import cn.edu.njtech.entity.FoodType;
+import cn.edu.njtech.entity.Foodtype;
 
 public class FoodDAOImpl implements IFoodDAO{
 
 	@Override
-	public List<FoodType> selectAllFoodType(String name) throws SQLException {
+	public List<Foodtype> selectAllFoodType(String name) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int addFoodType(FoodType ft) throws SQLException {
+	public int addFoodType(Foodtype ft) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -29,13 +29,13 @@ public class FoodDAOImpl implements IFoodDAO{
 	}
 
 	@Override
-	public List<FoodType> selectById(int id) throws SQLException {
+	public List<Foodtype> selectById(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int updateType(FoodType ft) throws SQLException {
+	public int updateType(Foodtype ft) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -4,14 +4,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.edu.njtech.entity.Food;
-import cn.edu.njtech.entity.FoodType;
+import cn.edu.njtech.entity.Foodtype;
 
 public interface IFoodDAO {
-	public List<FoodType> selectAllFoodType(String name)throws SQLException;
-	public int addFoodType(FoodType ft)throws SQLException;
+	public List<Foodtype> selectAllFoodType(String name)throws SQLException;
+	public int addFoodType(Foodtype ft)throws SQLException;
 	public int deleteFoodType(int id)throws SQLException;
-	public List<FoodType> selectById(int id)throws SQLException;
-	public int updateType(FoodType ft)throws SQLException;
+	public List<Foodtype> selectById(int id)throws SQLException;
+	public int updateType(Foodtype ft)throws SQLException;
 	
 	public List<Food> selectAllFood(String name)throws SQLException;
 	public int addFood(Food f)throws SQLException;

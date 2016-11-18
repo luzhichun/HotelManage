@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.edu.njtech.dao.IDinnerTableDAO;
-import cn.edu.njtech.entity.DinnerTable;
+import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.service.IDinnerTableService;
 
 public class DinnerTableServiceImpl implements IDinnerTableService{
@@ -17,9 +17,9 @@ public class DinnerTableServiceImpl implements IDinnerTableService{
 		this.dinnerTableDao = dinnerTableDao;
 	}
 	@Override
-	public List<DinnerTable> selectAll(String name) {
+	public List<Dinnertable> selectAll(String name) {
 		// TODO Auto-generated method stub
-		List<DinnerTable>list=null;
+		List<Dinnertable>list=null;
 		try {
 			 list=dinnerTableDao.selectAll(name);
 		} catch (SQLException e) {
@@ -30,7 +30,7 @@ public class DinnerTableServiceImpl implements IDinnerTableService{
 		return list;
 	}
 	@Override
-	public int addTable(DinnerTable dt) {
+	public int addTable(Dinnertable dt) {
 		// TODO Auto-generated method stub
 		int result=0;
 		try {
@@ -66,9 +66,9 @@ public class DinnerTableServiceImpl implements IDinnerTableService{
 		return result;
 	}
 	@Override
-	public List<DinnerTable> selectById(int id) {
+	public List<Dinnertable> selectById(int id) {
 		// TODO Auto-generated method stub
-		List<DinnerTable> list=null;
+		List<Dinnertable> list=null;
 		try {
 			list=dinnerTableDao.selectById(id);
 		} catch (SQLException e) {

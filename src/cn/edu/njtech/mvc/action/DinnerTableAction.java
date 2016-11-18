@@ -3,16 +3,16 @@ package cn.edu.njtech.mvc.action;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
-import cn.edu.njtech.entity.DinnerTable;
+import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.service.IDinnerTableService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class DinnerTableAction extends ActionSupport implements ModelDriven<DinnerTable>,SessionAware{
+public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinnertable>,SessionAware{
 	private IDinnerTableService dinnerTableService;
 	private Map<String , Object> session;
 	private String keyword;
-	private DinnerTable dinnerTable=new DinnerTable();
+	private Dinnertable dinnerTable=new Dinnertable();
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 		this.session=arg0;
@@ -34,21 +34,21 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		if(name==null){
 			name="";
 		}
-		List<DinnerTable> list=dinnerTableService.selectAll(name);
+		List<Dinnertable> list=dinnerTableService.selectAll(name);
 		session.put("list", list);
 		session.put("name", name);
 		return "boardList";
 	}
 	public String addTable() throws Exception{
-		DinnerTable dt=new DinnerTable();
-		String tableName=dinnerTable.getTableName();
-		List<DinnerTable> list=dinnerTableService.selectAll(tableName);
+		Dinnertable dt=new Dinnertable();
+		String tableName=dinnerTable.getTablename();
+		List<Dinnertable> list=dinnerTableService.selectAll(tableName);
 		if(list.size()>0){
 			return ERROR;
 		}
-		dt.setTableName(tableName);
-		dt.setTableStatus(0);
-		dt.setOrderDate(null);
+		dt.setTablename(tableName);
+	//	dt.setTablename(0);
+		dt.setOrderdate(null);
 		if(dinnerTableService.addTable(dt)>0){
 			return SUCCESS;
 		}else{
@@ -56,11 +56,11 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		}
 	}
 	public String deleteTable() throws Exception{
-		DinnerTable dt=dinnerTableService.selectById(dinnerTable.getId()).get(0);
-		if(dt.getTableStatus()==1){
+		Dinnertable dt=dinnerTableService.selectById(dinnerTable.getTableid()).get(0);
+		if(dt.getTablestatus()==1){
 			return ERROR;
 		}
-		if(dinnerTableService.deleteTable(dinnerTable.getId())>0){
+		if(dinnerTableService.deleteTable(dinnerTable.getTableid())>0){
 			return SUCCESS;
 		}else{
 			System.out.println("shanchushibai");
@@ -68,14 +68,14 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		}
 	}
 	public String returnTable() throws Exception{
-		if(dinnerTableService.returnTable(dinnerTable.getId())>0){
+		if(dinnerTableService.returnTable(dinnerTable.getTableid())>0){
 			return SUCCESS;
 		}else{
 			return ERROR;
 		}
 	}
 	@Override
-	public DinnerTable getModel() {
+	public Dinnertable getModel() {
 		// TODO Auto-generated method stub
 		return dinnerTable;
 	}

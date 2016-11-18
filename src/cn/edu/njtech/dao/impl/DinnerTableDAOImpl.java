@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import cn.edu.njtech.dao.IDinnerTableDAO;
-import cn.edu.njtech.entity.DinnerTable;
+import cn.edu.njtech.entity.Dinnertable;
 
 public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinnerTableDAO{
 
@@ -20,15 +20,15 @@ public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinne
 		this.dinnerTableDao = dinnerTableDao;
 	}
 
-	public List<DinnerTable> selectAll(String name) throws SQLException {
+	public List<Dinnertable> selectAll(String name) throws SQLException {
 		// TODO Auto-generated method stub
-		DinnerTable dt=new DinnerTable();
-		dt.setTableName(name);
+		Dinnertable dt=new Dinnertable();
+		dt.setTablename(name);
 		return getSqlMapClientTemplate().queryForList("selectTable",dt);
 	}
 
 	@Override
-	public int addTable(DinnerTable dt) throws SQLException {
+	public int addTable(Dinnertable dt) throws SQLException {
 		// TODO Auto-generated method stub
 		return (int) getSqlMapClientTemplate().insert("insertTable", dt);
 	}
@@ -46,7 +46,7 @@ public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinne
 	}
 
 	@Override
-	public List<DinnerTable> selectById(int id) throws SQLException {
+	public List<Dinnertable> selectById(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return getSqlMapClientTemplate().queryForList("selectTableById",id);
 	}

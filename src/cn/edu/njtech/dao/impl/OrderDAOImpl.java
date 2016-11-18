@@ -5,25 +5,24 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.edu.njtech.dao.IOrderDAO;
-import cn.edu.njtech.entity.Order;
-import cn.edu.njtech.entity.OrderBean;
+import cn.edu.njtech.entity.Orders;
 
 public class OrderDAOImpl implements IOrderDAO{
 
 	@Override
-	public List<Order> getOrder(int id) throws SQLException {
+	public List<Orders> getOrder(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Order> selectAllOrder() throws SQLException {
+	public List<Orders> selectAllOrder() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<OrderBean> showOrderDetail(int id) throws SQLException {
+	public List<Orders> showOrderDetail(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,7 +40,7 @@ public class OrderDAOImpl implements IOrderDAO{
 	}
 
 	@Override
-	public List<Order> getOrderTable(int id) throws SQLException {
+	public List<Orders> getOrderTable(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
