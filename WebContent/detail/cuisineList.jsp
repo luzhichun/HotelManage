@@ -28,35 +28,7 @@
 				});
 		})
 	})*/
-		var xmlHttp;
-		function createXMLHttpRequest() {
-			if(window.XMLHttpRequest) {
-				xmlHttp = new XMLHttpRequest();
-			}else{
-				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-		}
-		function fun(id) {
-			
-			createXMLHttpRequest();
-			//参数1:提交方式 
-			//参数2:提交 url
-			//参数3:是否异步操作 
-			//打电话给别人 
-			xmlHttp.open("GET","${pageContext.servletContext.contextPath}/deleteType?id="+id,true);
-			//设置回调函数 
-			xmlHttp.onreadystatechange= callBackData;
-			xmlHttp.send(null);
-		}
-		function callBackData(){
-			if(xmlHttp.readyState==4) {
-				if(xmlHttp.status==200) {
-					var text= xmlHttp.responseText;
-					console.debug(text);
-					document.getElementById("serverInfo").innerHTML=text;
-				}
-			}
-		}
+
 </script>
 </head>
 <body>
@@ -75,7 +47,7 @@
 	<div id="QueryArea">
 		<form action="cuisineList" method="post">
 			<input type="hidden" name="method" value="search">
-			<input type="text" name="keyword" value="${name}"title="请输入菜系名称">
+			<input type="text" name="keyword" value="${foodTypename}"title="请输入菜系名称">
 			<input type="submit" value="搜索">
 		</form>
 	</div>
@@ -93,15 +65,15 @@
 			</thead>
 			<!--显示数据列表 -->
 			<tbody id="TableData">
-				<c:if test="${list!=null}">
-					<c:forEach items="${list}" var="ot">
-						<tr>
-							<td>${ot.id}</td>
-							<td>${ot.typeName}</td>
+				<c:if test="${foodTypelist!=null}">
+					<c:forEach items="${foodTypelist}" var="ot">
+					<tr class="TableDetail1">
+							<td align="center">${ot.foodtypeid}</td>
+							<td align="center">${ot.typename}</td>
 							<td>
-							<!-- ${pageContext.servletContext.contextPath}/deleteType?id=${ot.id} -->
-								<a href="updateCuisine?id=${ot.id}" class="FunctionButton" >更新</a> 
-								<a href="" class="FunctionButton" onclick="fun(${ot.id})">删除</a>
+							
+								<a href="foodType_beforeupdate?foodtypeid=${ot.foodtypeid}&typeName=${ot.typename}" class="FunctionButton" >更新</a> 
+								<a href="deleteCuisine?foodtypeid=${ot.foodtypeid}" class="FunctionButton" >删除</a>
 							</td>
 					</tr>
 					</c:forEach>

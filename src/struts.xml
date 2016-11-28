@@ -29,7 +29,18 @@
        <!--   <action name="deleteTable" class="cn.com.yxl.mvc.action.DinnerTableAction" method="deleteTable" >
             <result name="success" type="redirect">Dinner</result>
         </action>-->
-        <!-- 菜系及菜品管理 -->
+     <!-- 菜系管理action-->
+        <action name="cuisineList" class="FoodTypeAction" method="showcuisineList" >
+            <result name="cuisineList" type="redirect">/detail/cuisineList.jsp</result>
+        </action>
+        <action name = "foodType_beforeupdate" class = "FoodTypeAction" method = "beforeupdate">
+			<result name = "beforeupdate" type = "redirect">detail/updateCuisine.jsp</result>
+		</action>
+         <action name="*Cuisine" class="FoodTypeAction" method="{1}Cuisine" >
+            <result name="success" type="redirect">cuisineList</result>
+            <result name="error" type="redirect">cuisineList</result>
+        </action>
+    
         
     </package>
 </struts>

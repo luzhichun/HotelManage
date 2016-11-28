@@ -14,12 +14,12 @@
 		</selectKey>
     </insert>
     <delete id="deleteTable" parameterClass="java.lang.Integer">
-    	delete from dinnerTable where id=#id#
+    	delete from dinnerTable where tableId=#tableid#
     </delete>
     <update id="updateTable" parameterClass="java.lang.Integer">
-    	UPDATE dinnerTable SET tablestatus=0,orderdate=null WHERE id=#id#
+    	UPDATE dinnerTable SET tablestatus=0,orderdate=null WHERE tableId=#tableid#
     </update>
     <select id="selectTableById" parameterClass="java.lang.Integer" resultClass="Dinnertable">
-    	select * from dinnerTable where id=#id#
+    	select * from dinnerTable where tableId=#tableid#
     </select>
 </sqlMap>

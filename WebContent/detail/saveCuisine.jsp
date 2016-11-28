@@ -26,7 +26,7 @@
 <!-- 主内容区域（数据列表或表单显示） -->
 <div id="MainArea">
 	<!-- 表单内容 -->
-	<form action="addType" method="post">
+	<form action="addCuisine" method="post">
 		<!-- 本段标题（分段标题） -->
 		<div class="ItemBlock_Title">
         	<img width="4" height="7" border="0" src="style/images/item_point.gif"> 菜系信息&nbsp;
@@ -39,7 +39,7 @@
 						<tr>
 							<td width="80px">菜系名称</td>
 							<td>
-								<input type="text" name="name" class="InputStyle" value=""/> *
+								<input type="text" name="typename" class="InputStyle" value=""/> *
 								<input type="hidden" name="cid" value="" />
 							</td>
 						</tr>

@@ -25,6 +25,10 @@
 		</property>
 	</bean>
 	<!-- Dao层配置 -->
+	<bean id="FoodDAOImpl" class="cn.edu.njtech.dao.impl.FoodDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient">
+		</property>
+	</bean>
 	<bean id="DinnerTableDAOImpl" class="cn.edu.njtech.dao.impl.DinnerTableDAOImpl">
 		<property name="sqlMapClient" ref="sqlMapClient">
 		</property>
@@ -34,6 +38,9 @@
 		</property>
 	</bean>
 	<!-- Service配置 -->
+	<bean id="FoodServiceImpl" class="cn.edu.njtech.service.impl.FoodServiceImpl">
+		<property name="dao" ref="FoodDAOImpl"></property>
+	</bean>
 	<bean id="DinnerTableServiceImpl" class="cn.edu.njtech.service.impl.DinnerTableServiceImpl">
 		<property name="dinnerTableDao" ref="DinnerTableDAOImpl"></property>
 	</bean>
@@ -41,6 +48,9 @@
 		<property name="userDao" ref="UserDAOImpl"></property>
 	</bean>
 	<!-- Action配置 -->
+	<bean id="FoodTypeAction" class="cn.edu.njtech.mvc.action.FoodTypeAction">
+	<property name="foodService" ref="FoodServiceImpl"></property>
+	</bean>
 	<bean id="DinnerTableAction" class="cn.edu.njtech.mvc.action.DinnerTableAction">
 		<property name="dinnerTableService" ref="DinnerTableServiceImpl"></property>
 	</bean>

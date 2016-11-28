@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="Foodtype" type="cn.edu.njtech.entity.Foodtype" />   
+    <select id="selectfoodtype" parameterClass="Foodtype" resultClass="Foodtype">
+    	<!-- t_user是数据库的表名 -->
+       select * from foodType where typename like concat('%', #typename#, '%')
+    </select>
+    <insert id="insertfoodtype" parameterClass="Foodtype">
+    	insert into foodType(typename) values(#typename#)
+    	<selectKey resultClass="int" keyProperty="foodtypeid">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+    </insert>
+    <delete id="deletefoodtype" parameterClass="java.lang.Integer">
+    	delete from foodType where foodtypeid=#foodtypeid#
+    </delete>
+    <update id="updatefoodtype" parameterClass="Foodtype">
+    	UPDATE foodType SET typename=#typename# WHERE foodtypeid=#foodtypeid#
+    </update>
+    <select id="selectfoodtypeById" parameterClass="java.lang.Integer" resultClass="Foodtype">
+    	select * from foodType where foodtypeid=#foodtypeid#
+    </select>
+</sqlMap>

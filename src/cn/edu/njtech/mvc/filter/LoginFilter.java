@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
 		HttpServletRequest request=(HttpServletRequest) req;
 		HttpServletResponse response=(HttpServletResponse) resp;
 		String path = request.getRequestURI();
-		System.out.println(path);
+		//System.out.println(path);
 		User u=(User) request.getSession().getAttribute("User");
 		if(path.contains("index.jsp")){
 			chain.doFilter(request, response);

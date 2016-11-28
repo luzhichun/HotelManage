@@ -64,9 +64,9 @@
 						<a href="#" class="FunctionButton" onclick="return confirm('餐桌处于空闲状态不可退')">退桌</a>
 					</c:if>
 					<c:if test="${d.tablestatus==1}">
-						<a href="returnTable?id=${d.tableid}" class="FunctionButton">退桌</a>
+						<a href="returnTable?tableid=${d.tableid}" class="FunctionButton">退桌</a>
 					</c:if>
-					<a href="deleteTable?id=${d.tableid}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
+					<a href="deleteTable?tableid=${d.tableid}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
 	        </c:forEach>
