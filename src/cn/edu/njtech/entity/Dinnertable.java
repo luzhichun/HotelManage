@@ -32,7 +32,7 @@ public class Dinnertable implements Serializable {
 	/**
 	 * orderDate:
 	 */
-	private Date orderdate;
+	private String orderdate;
 
 	/**
 	 * orders:
@@ -44,7 +44,7 @@ public class Dinnertable implements Serializable {
 	}
 
 	public Dinnertable(int tableid, String tablename, int tablestatus,
-			Date orderdate, Set<Orders> ordersSet) {
+			String orderdate, Set<Orders> ordersSet) {
 		super();
 		this.tableid = tableid;
 		this.tablename = tablename;
@@ -77,11 +77,11 @@ public class Dinnertable implements Serializable {
 		return tablestatus;
 	}
 
-	public void setOrderdate(Date orderdate) {
+	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
 
-	public Date getOrderdate() {
+	public String getOrderdate() {
 		return orderdate;
 	}
 

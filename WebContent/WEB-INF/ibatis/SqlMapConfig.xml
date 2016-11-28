@@ -4,5 +4,5 @@
 <sqlMapConfig>
 	<sqlMap resource="cn/edu/njtech/entity/T_FoodType.xml"/>
 	<sqlMap resource="cn/edu/njtech/entity/T_DinnerTable.xml"/>
-	
+	<sqlMap resource="cn/edu/njtech/entity/Food.xml"/>
 </sqlMapConfig>
