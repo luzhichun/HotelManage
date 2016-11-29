@@ -2,24 +2,33 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
-    <typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable" />    
-    <select id="selectTable" parameterClass="Dinnertable" resultClass="Dinnertable">
+    <typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable" /> 
+    <typeAlias alias="DinnerTablePage" type="cn.edu.njtech.common.DinnerTablePage"/>  
+    <!--<parameterMap class="java.util.HashMap" id="parameterMap">
+    	<parameter property="tableName"/>
+    	<parameter property="currentPage"/>
+    	<parameter property="pageSize"/>
+    </parameterMap>-->
+    <select id="selectTable" parameterClass="java.util.Map" resultClass="Dinnertable">
     	<!-- t_user是数据库的表名 -->
-       select * from dinnerTable where tablename like concat('%', #tablename#, '%')
+       select * from dinnerTable where tableName like concat('%', #tableName#, '%') limit #currentPage#,#pageSize#
     </select>
     <insert id="insertTable" parameterClass="Dinnertable">
-    	insert into dinnerTable(tablename,tablestatus,orderdate) values(#tablename#,#tablestatus#,#orderdate#)
-    	<selectKey resultClass="int" keyProperty="id">
+    	insert into dinnerTable(tableName,tableStatus,orderDate) values(#tableName#,#tableStatus#,#orderDate#)
+    	<selectKey resultClass="int" keyProperty="tableid">
 			SELECT @@IDENTITY AS ID
 		</selectKey>
     </insert>
     <delete id="deleteTable" parameterClass="java.lang.Integer">
-    	delete from dinnerTable where tableId=#tableid#
+    	delete from dinnerTable where tableId=#tableId#
     </delete>
     <update id="updateTable" parameterClass="java.lang.Integer">
-    	UPDATE dinnerTable SET tablestatus=0,orderdate=null WHERE tableId=#tableid#
+    	UPDATE dinnerTable SET tableStatus=0,orderDate=null WHERE tableId=#tableId#
     </update>
     <select id="selectTableById" parameterClass="java.lang.Integer" resultClass="Dinnertable">
-    	select * from dinnerTable where tableId=#tableid#
+    	select * from dinnerTable where tableId=#tableId#
+    </select>
+    <select id="selectCounts" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+    	select count(*) from dinnerTable where tableName like concat('%', #tableName#, '%')
     </select>
 </sqlMap>

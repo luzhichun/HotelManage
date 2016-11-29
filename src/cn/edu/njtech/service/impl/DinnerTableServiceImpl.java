@@ -2,6 +2,7 @@ package cn.edu.njtech.service.impl;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import cn.edu.njtech.dao.IDinnerTableDAO;
 import cn.edu.njtech.entity.Dinnertable;
@@ -17,11 +18,11 @@ public class DinnerTableServiceImpl implements IDinnerTableService{
 		this.dinnerTableDao = dinnerTableDao;
 	}
 	@Override
-	public List<Dinnertable> selectAll(String name) {
+	public List<Dinnertable> selectAll(Map<String,Object> map) {
 		// TODO Auto-generated method stub
 		List<Dinnertable>list=null;
 		try {
-			 list=dinnerTableDao.selectAll(name);
+			 list=dinnerTableDao.selectAll(map);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,6 +77,18 @@ public class DinnerTableServiceImpl implements IDinnerTableService{
 			e.printStackTrace();
 		}
 		return list;
+	}
+	@Override
+	public int getCounts(String name) {
+		// TODO Auto-generated method stub
+		int result=0;
+		try {
+			result=dinnerTableDao.getDinnerNum(name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

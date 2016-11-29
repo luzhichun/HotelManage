@@ -2,8 +2,6 @@ package  cn.edu.njtech.entity;
 
 
 import java.io.Serializable;
-
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,23 +15,22 @@ public class Dinnertable implements Serializable {
 	/**
 	 * tableId:
 	 */
-	private int tableid;
+	private int tableId;
 
 	/**
 	 * tableName:
 	 */
-	private String tablename;
+	private String tableName;
 
 	/**
 	 * tableStatus:
 	 */
-	private int tablestatus;
+	private int tableStatus;
 
 	/**
 	 * orderDate:
 	 */
-	private String orderdate;
-
+	private String orderDate;
 	/**
 	 * orders:
 	 */
@@ -43,60 +40,53 @@ public class Dinnertable implements Serializable {
 		super();
 	}
 
-	public Dinnertable(int tableid, String tablename, int tablestatus,
-			String orderdate, Set<Orders> ordersSet) {
-		super();
-		this.tableid = tableid;
-		this.tablename = tablename;
-		this.tablestatus = tablestatus;
-		this.orderdate = orderdate;
-		this.ordersSet = ordersSet;
+	public int getTableId() {
+		return tableId;
+	}
+	public void setTableId(int tableId) {
+		this.tableId = tableId;
 	}
 
-	public void setTableid(int tableid) {
-		this.tableid = tableid;
+	public String getTableName() {
+		return tableName;
 	}
 
-	public int getTableid() {
-		return tableid;
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 
-	public void setTablename(String tablename) {
-		this.tablename = tablename;
+	public int getTableStatus() {
+		return tableStatus;
 	}
 
-	public String getTablename() {
-		return tablename;
+	public void setTableStatus(int tableStatus) {
+		this.tableStatus = tableStatus;
 	}
 
-	public void setTablestatus(int tablestatus) {
-		this.tablestatus = tablestatus;
+	public String getOrderDate() {
+		return orderDate;
 	}
 
-	public int getTablestatus() {
-		return tablestatus;
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
 	}
-
-	public void setOrderdate(String orderdate) {
-		this.orderdate = orderdate;
-	}
-
-	public String getOrderdate() {
-		return orderdate;
+	
+	public Set<Orders> getOrdersSet() {
+		return ordersSet;
 	}
 
 	public void setOrdersSet(Set<Orders> ordersSet) {
 		this.ordersSet = ordersSet;
 	}
 
-	public Set<Orders> getOrdersSet() {
-		return ordersSet;
+	public Dinnertable(int tableId, String tableName, int tableStatus,
+			String orderDate, Set<Orders> ordersSet) {
+		super();
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.tableStatus = tableStatus;
+		this.orderDate = orderDate;
+		this.ordersSet = ordersSet;
 	}
-
-	public String toString() {
-		return "Dinnertable [tableid=" + tableid + ",tablename=" + tablename
-				+ ",tablestatus=" + tablestatus + ",orderdate=" + orderdate
-				+ ",ordersSet=" + ordersSet + "]";
-	}
-
+	
 }

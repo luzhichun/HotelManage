@@ -1,10 +1,15 @@
 package cn.edu.njtech.mvc.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
+
+import cn.edu.njtech.common.DinnerTablePage;
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.service.IDinnerTableService;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -13,6 +18,8 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 	private Map<String , Object> session;
 	private String keyword;
 	private Dinnertable dinnerTable=new Dinnertable();
+	private int currentPage=1;
+	Map<String,Object> map=new HashMap<String,Object>();
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 		this.session=arg0;
@@ -29,26 +36,43 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
 	public String showboardList(){
+		DinnerTablePage page=new DinnerTablePage();
+		page.setCurrentPage(currentPage);
 		String name=keyword;
 		if(name==null){
 			name="";
 		}
-		List<Dinnertable> list=dinnerTableService.selectAll(name);
+		int total=dinnerTableService.getCounts(name);
+		page.setTotalPage((total-1)/page.getPageSize()+1);
+		map.put("tableName",name);
+		map.put("currentPage", page.getCurrentPage());
+		map.put("pageSize",page.getPageSize());
+		List<Dinnertable> list=dinnerTableService.selectAll(map);
 		session.put("list", list);
 		session.put("name", name);
+		session.put("DcurrentPage", currentPage);
+		session.put("DtotalPage", page.getTotalPage());
+		System.out.println(page.getTotalPage());
 		return "boardList";
 	}
 	public String addTable() throws Exception{
 		Dinnertable dt=new Dinnertable();
-		String tableName=dinnerTable.getTablename();
-		List<Dinnertable> list=dinnerTableService.selectAll(tableName);
+		String tableName=dinnerTable.getTableName();
+		List<Dinnertable> list=dinnerTableService.selectAll(map);
 		if(list.size()>0){
 			return ERROR;
 		}
-		dt.setTablename(tableName);
+		dt.setTableName(tableName);
 	//	dt.setTablename(0);
-		dt.setOrderdate(null);
+		dt.setOrderDate(null);
 		if(dinnerTableService.addTable(dt)>0){
 			return SUCCESS;
 		}else{
@@ -56,11 +80,11 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		}
 	}
 	public String deleteTable() throws Exception{
-		Dinnertable dt=dinnerTableService.selectById(dinnerTable.getTableid()).get(0);
-		if(dt.getTablestatus()==1){
+		Dinnertable dt=dinnerTableService.selectById(dinnerTable.getTableId()).get(0);
+		if(dt.getTableStatus()==1){
 			return ERROR;
 		}
-		if(dinnerTableService.deleteTable(dinnerTable.getTableid())>0){
+		if(dinnerTableService.deleteTable(dinnerTable.getTableId())>0){
 			return SUCCESS;
 		}else{
 			System.out.println("shanchushibai");
@@ -68,7 +92,7 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		}
 	}
 	public String returnTable() throws Exception{
-		if(dinnerTableService.returnTable(dinnerTable.getTableid())>0){
+		if(dinnerTableService.returnTable(dinnerTable.getTableId())>0){
 			return SUCCESS;
 		}else{
 			return ERROR;

@@ -2,6 +2,7 @@ package cn.edu.njtech.dao.impl;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
@@ -20,11 +21,9 @@ public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinne
 		this.dinnerTableDao = dinnerTableDao;
 	}
 
-	public List<Dinnertable> selectAll(String name) throws SQLException {
+	public List<Dinnertable> selectAll(Map<String,Object> map) throws SQLException {
 		// TODO Auto-generated method stub
-		Dinnertable dt=new Dinnertable();
-		dt.setTablename(name);
-		return getSqlMapClientTemplate().queryForList("selectTable",dt);
+		return getSqlMapClientTemplate().queryForList("selectTable",map);
 	}
 
 	@Override
@@ -49,6 +48,12 @@ public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinne
 	public List<Dinnertable> selectById(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		return getSqlMapClientTemplate().queryForList("selectTableById",id);
+	}
+
+	@Override
+	public int getDinnerNum(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return (int) getSqlMapClientTemplate().queryForList("selectCounts",name).get(0);
 	}
 
 }
