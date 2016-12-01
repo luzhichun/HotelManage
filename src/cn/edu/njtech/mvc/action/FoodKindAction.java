@@ -65,6 +65,15 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 	private String result;
 	private String checkFoodName;
 	private String imageName;
+	private String cname;
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
 
 	public String getImageName() {
 		return imageName;
@@ -113,6 +122,7 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 	public void setFoodService(IFoodService foodService) {
 		this.foodService = foodService;
 	}
+
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.foodsession = arg0;
@@ -165,15 +175,18 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 
 	public String checkFoodName() {
 		Map<String, Object> chatroom = new HashMap<String, Object>();
-		List<Food> list = foodService.selectFoodByName(checkFoodName);
-		System.out.println(checkFoodName);
-		if (checkFoodName.length() == 0) {
-			chatroom.put("result", "菜名不能为空");
+		if (checkFoodName.equals(cname)) {
+			chatroom.put("result", "菜名未改变");
 		} else {
-			if (list.size() > 0) {
-				chatroom.put("result", "菜名不可用");
+			List<Food> list = foodService.selectFoodByName(checkFoodName);
+			if (checkFoodName.length() == 0) {
+				chatroom.put("result", "菜名不能为空");
 			} else {
-				chatroom.put("result", "菜名可用");
+				if (list.size() > 0) {
+					chatroom.put("result", "菜名不可用");
+				} else {
+					chatroom.put("result", "菜名可用");
+				}
 			}
 		}
 		JSONObject jo = JSONObject.fromObject(chatroom);
@@ -190,12 +203,12 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 	}
 
 	public String updateFood() throws Exception {
-		System.out.println("filen"+fileFileName);
-		System.out.println("imageName"+imageName);
-		if (fileFileName!=imageName&&fileFileName!=null) {
+		System.out.println("filen" + fileFileName);
+		System.out.println("imageName" + imageName);
+		if (fileFileName != imageName && fileFileName != null) {
 			uploadFile();
 			food.setImg(fileFileName);
-		}else{
+		} else {
 			food.setImg(imageName);
 		}
 		System.out.println(food);
@@ -205,13 +218,20 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 			return ERROR;
 		}
 	}
-	public String deleteFood(){
-		if(foodService.deleteFood(food.getFoodId())>0){
+
+	public String deleteFood() {
+		if (foodService.deleteFood(food.getFoodId()) > 0) {
 			return SUCCESS;
-		}else{
+		} else {
 			return ERROR;
 		}
 	}
+
+	public String changeImage() throws Exception {
+		uploadFile();
+		return result;
+	}
+
 	// ======================================文件上传方法
 	public void uploadFile() throws Exception {
 		String root = ServletActionContext.getServletContext().getRealPath(
@@ -230,6 +250,7 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 		os.close();
 		is.close();
 	}
+
 	public void downloadFile() {
 
 	}

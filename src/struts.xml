@@ -80,5 +80,10 @@
 			<result name="success" type="redirect">foodList</result>
 			<result name="error" type="redirect">foodList</result>
 		</action>
+		<action name="changeImage" class="FoodKindAction" method="changeImage">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 </struts>

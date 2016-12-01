@@ -7,11 +7,21 @@
 
 <title>无线点餐平台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="style/js/jquery.js"></script>
+<script type="text/javascript" src="style/js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="style/js/page_common.js"></script>
 <link href="style/css/common_style_blue.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" type="text/css" href="style/css/index_1.css" />
+<script type="text/javascript" src="style/js/check.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#file").change(function(){
+			var fileName = $("#file").val();//获取到文件列表
+			console.debug(fileName);
+			$("#showImage").attr("src","../upload/"+fileName);
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- 页面标题 -->
@@ -58,9 +68,9 @@
 								</select> *<input type="hidden" name="id" value="${nf.foodId}" /></td>
 							</tr>
 							<tr>
-								<td width="80px">菜名</td>
+								<td width="80px">菜名<input type="hidden" id="ckname" value="${nf.foodName}"/></td>
 								<td><input type="text" name="foodName" class="InputStyle"
-									value="${nf.foodName}" /> *</td>
+									value="${nf.foodName}" /> *<span id="name_msg"></span></td>
 							</tr>
 							<tr>
 								<td>价格</td>
@@ -79,10 +89,11 @@
 							</tr>
 							<tr>
 								<td width="80px">菜品图片</td>
-								<td><img
+								<td>
+								<img id="showImage"
 									style='max-width: 68px; width: 68px; width: expression(width &gt; 68 ? "68px" : width "px"); max-width: 68px;'
 									src="../upload/${nf.img}"> <input type="hidden"
-									name="imageName" value="${nf.img}"> <input type="file"
+									name="imageName" value="${nf.img}"> <input id="file" type="file"
 									name="file" /> *</td>
 							</tr>
 						</table>
@@ -91,7 +102,7 @@
 			</div>
 			<!-- 表单操作 -->
 			<div id="InputDetailBar">
-				<input type="submit" value="修改" class="FunctionButtonInput">
+				<input type="submit" onclick="return check();" value="修改" class="FunctionButtonInput">
 				<a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
 			</div>
 		</form>

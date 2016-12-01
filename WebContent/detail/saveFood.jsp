@@ -12,6 +12,7 @@
 <link href="style/css/common_style_blue.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" type="text/css" href="style/css/index_1.css" />
+<script type="text/javascript" src="style/js/check.js"></script>
 <script type="text/javascript">
 	/*$(function() {
 		$.ajax({
@@ -32,7 +33,7 @@
 				}
 			}
 		});
-	});*/
+	});
 	$(function(){
 		$(".InputStyle").focus(function(){
 			var name=$(".InputStyle").val();
@@ -40,7 +41,7 @@
 			$.ajax({
 				type : "POST",
 				url : "checkFoodName",
-				data:{"checkFoodName":name},
+				data:{"checkFoodName":name,"cname" :"****"},
 				dataType : "json",
 				success : function(json) {
 					$("#name_msg").empty();
@@ -51,7 +52,7 @@
 				
 			});
 		});
-		/*$(".FunctionButtonInput").click(function(){
+		$(".FunctionButtonInput").click(function(){
 			var msg=$("#name_msg").val();
 			var flag=false;
 			if((msg="菜名不可用")||(msg="")){
@@ -61,7 +62,7 @@
 				alert(msg);
 				return;
 			}
-		});*/
+		});
 		
 	});
 	function check(){
@@ -76,7 +77,7 @@
 		if(flag==false){
 			return false;
 		}
-	}
+	}*/
 </script>
 </head>
 <body>
@@ -145,8 +146,8 @@
 			</div>
 			<!-- 表单操作 -->
 			<div id="InputDetailBar">
-				<input type="submit" onclick="return check();" value="添加" class="FunctionButtonInput">
-				<a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
+				<input type="submit" onclick="return check();" value="添加"
+					class="FunctionButtonInput"> <a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
 			</div>
 		</form>
 	</div>
