@@ -9,38 +9,76 @@
 	<constant name="struts.custom.i18n.resources" value="message" />
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.multipart.maxSize" value="10240000" />
-    <package name="hotel" extends="struts-default" namespace="/">
-    <!-- 登录action的管理 -->
-    <action name="Login" class="LoginAction" method="login">
-    	<result name="success" type="redirect">background.jsp</result>
-    	<result name="error" type="redirect">index.jsp</result>
-    </action>
-    <action name="return" class="LoginAction" method="returnSystem">
-    	<result name="success" type="redirect">index.jsp</result>
-    </action>
-    <!-- 餐桌管理action -->
-        <action name="Dinner" class="DinnerTableAction" method="showboardList" >
-            <result name="boardList" type="redirect">/detail/boardList.jsp</result>
-        </action>
-        <action name="*Table" class="DinnerTableAction" method="{1}Table" >
-            <result name="success" type="redirect">Dinner</result>
-            <result name="error" type="redirect">Dinner</result>
-        </action>
-       <!--   <action name="deleteTable" class="cn.com.yxl.mvc.action.DinnerTableAction" method="deleteTable" >
-            <result name="success" type="redirect">Dinner</result>
-        </action>-->
-     <!-- 菜系管理action-->
-        <action name="cuisineList" class="FoodTypeAction" method="showcuisineList" >
-            <result name="cuisineList" type="redirect">/detail/cuisineList.jsp</result>
-        </action>
-        <action name = "foodType_beforeupdate" class = "FoodTypeAction" method = "beforeupdate">
-			<result name = "beforeupdate" type = "redirect">detail/updateCuisine.jsp</result>
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<package name="hotel" extends="struts-default,json-default"
+		namespace="/">
+		<!-- 登录action的管理 -->
+		<action name="Login" class="LoginAction" method="login">
+			<result name="success" type="redirect">background.jsp</result>
+			<result name="error" type="redirect">index.jsp</result>
 		</action>
-         <action name="*Cuisine" class="FoodTypeAction" method="{1}Cuisine" >
-            <result name="success" type="redirect">cuisineList</result>
-            <result name="error" type="redirect">cuisineList</result>
-        </action>
-    
-        
-    </package>
+		<action name="return" class="LoginAction" method="returnSystem">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+		<!-- 餐桌管理action -->
+		<action name="Dinner" class="DinnerTableAction" method="showboardList">
+			<result name="boardList" type="redirect">/detail/boardList.jsp</result>
+		</action>
+		<action name="*Table" class="DinnerTableAction" method="{1}Table">
+			<result name="success" type="redirect">Dinner</result>
+			<result name="error" type="redirect">Dinner</result>
+		</action>
+		<!-- 菜系管理action -->
+		<action name="cuisineList" class="FoodTypeAction" method="showcuisineList">
+			<result name="cuisineList" type="redirect">/detail/cuisineList.jsp
+			</result>
+		</action>
+		<action name="foodType_beforeupdate" class="FoodTypeAction"
+			method="beforeupdate">
+			<result name="beforeupdate" type="redirect">/detail/updateCuisine.jsp
+			</result>
+		</action>
+		<action name="*Cuisine" class="FoodTypeAction" method="{1}Cuisine">
+			<result name="success" type="redirect">cuisineList</result>
+			<result name="error" type="redirect">cuisineList</result>
+		</action>
+		<!-- 菜品管理action -->
+		<action name="foodList" class="FoodKindAction" method="showFoodList">
+			<result name="success" type="redirect">/detail/foodList.jsp
+			</result>
+		</action>
+		<!--  <action name="getFoodType" class="FoodKindAction" method="getFoodType">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>-->
+		<action name="beforeSaveFood" class="FoodKindAction" method="getFoodType">
+			<result name="success" type="redirect">/detail/saveFood.jsp</result>
+		</action>
+		<action name="addFood" class="FoodKindAction" method="addFood">
+			<interceptor-ref name="fileUpload">
+				<param name="maximunSize">409600</param>
+				<param name="allowedExtensions">jpg,gif,png</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirect">foodList</result>
+			<!--  <result name="input">/detail/error.jsp</result>-->
+		</action>
+		<action name="checkFoodName" class="FoodKindAction" method="checkFoodName">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="selectById" class="FoodKindAction" method="selectById">
+			<result name="success" type="redirect">detail/updateFood.jsp</result>
+		</action>
+		<action name="updateFood" class="FoodKindAction" method="updateFood">
+			<result name="success" type="redirect">foodList</result>
+			<result name="error" type="redirect">foodList</result>
+		</action>
+		<action name="deleteFood" class="FoodKindAction" method="deleteFood">
+			<result name="success" type="redirect">foodList</result>
+			<result name="error" type="redirect">foodList</result>
+		</action>
+	</package>
 </struts>

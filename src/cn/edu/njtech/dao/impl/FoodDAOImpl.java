@@ -3,6 +3,7 @@ package cn.edu.njtech.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
@@ -53,27 +54,27 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	}
 
 	@Override
-	public List<Food> selectAllFood(String name) throws SQLException {
+	public List<Food> selectAllFood(Map<String,Object> map) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlMapClientTemplate().queryForList("selectAll",map);
 	}
 
 	@Override
 	public int addFood(Food f) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		return (int) getSqlMapClientTemplate().insert("addFood", f);
 	}
 
 	@Override
 	public int deleteFood(int id) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlMapClientTemplate().delete("deleteFood", id);
 	}
 
 	@Override
 	public List<Food> selectFoodById(int id) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlMapClientTemplate().queryForList("selectById", id);
 	}
 
 	@Override
@@ -85,7 +86,19 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	@Override
 	public int updateFood(Food f) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		return getSqlMapClientTemplate().update("updateFood", f);
+	}
+
+	@Override
+	public List<Food> selectFoodByName(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return getSqlMapClientTemplate().queryForList("selectFoodByName", name);
+	}
+
+	@Override
+	public int getFoodNum(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return (int) getSqlMapClientTemplate().queryForList("getFoodNum", name).get(0);
 	}
 
 	

@@ -52,14 +52,14 @@
         	<c:if test="${list!=null}">
         		<c:forEach items="${list}" var="f">
         			<tr class="TableDetail1">
-						<td>${f.id}&nbsp;</td>
+						<td>${f.foodId}&nbsp;</td>
 						<td>${f.foodName}&nbsp;</td>
-						<td>${f.typeName}&nbsp;</td>
+						<td>${f.foodType}&nbsp;</td>
 						<td>${f.price}&nbsp;</td>
 		                <td>${f.mprice}&nbsp;</td>
 						<td>
-							<a href="selectById?id=${f.id}"  class="FunctionButton">更新</a>				
-							<a href="deleteFood?id=${f.id}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
+							<a href="selectById?foodId=${f.foodId}"  class="FunctionButton">更新</a>				
+							<a href="deleteFood?foodId=${f.foodId}" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 						</td>
 					</tr>
         		</c:forEach>
@@ -69,7 +69,52 @@
 	
    <!-- 其他功能超链接 -->
 	<div id="TableTail" align="center">
-		<div class="FunctionButton"><a href="saveFood">添加</a></div>
+		<div class="FunctionButton"><a href="beforeSaveFood">添加</a></div>
+		<div class="FunctionButton">
+				<a href="foodList?currentPage=1">首页</a>
+			</div>
+			<c:choose>
+				<c:when test="${FcurrentPage>1}">
+					<div class="FunctionButton">
+						<a href="foodList?currentPage=${FcurrentPage-1}">上一页</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="FunctionButton">
+						<a href="#">上一页</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="1" end="${FtotalPage}" var="p">
+				<c:choose>
+					<c:when test="${p==FcurrentPage}">
+						<div class="FunctionButton">
+							<a href="foodList?currentPage=${p}"
+								style="background: #FFF; border: #89bdd8 solid 1px; color: #067db5">${p}</a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="FunctionButton">
+							<a href="foodList?currentPage=${p}">${p}</a>
+						</div>
+					</c:otherwise>
+				</c:choose>>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${FcurrentPage<FtotalPage}">
+					<div class="FunctionButton">
+						<a href="foodList?currentPage=${FcurrentPage+1}">下一页</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="FunctionButton">
+						<a href="#">下一页</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			<div class="FunctionButton">
+				<a href="foodList?currentPage=${FtotalPage}">尾页</a>
+			</div>
     </div> 
 </div>
 </body>

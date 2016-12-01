@@ -57,5 +57,7 @@
 	<bean id="LoginAction" class="cn.edu.njtech.mvc.action.LoginAction">
 		<property name="userService" ref="UserServiceImpl"></property>
 	</bean>
-	
+	<bean id="FoodKindAction" class="cn.edu.njtech.mvc.action.FoodKindAction">
+		<property name="foodService" ref="FoodServiceImpl"></property>
+	</bean>
 </beans>

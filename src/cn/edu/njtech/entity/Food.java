@@ -14,12 +14,12 @@ public class Food implements Serializable {
 	/**
 	 * foodId:
 	 */
-	private int foodid;
+	private int foodId;
 
 	/**
 	 * foodName:
 	 */
-	private String foodname;
+	private String foodName;
 
 	/**
 	 * price:
@@ -44,100 +44,112 @@ public class Food implements Serializable {
 	/**
 	 * foodtype:
 	 */
-	private Foodtype foodtype;
+	private int foodType_id;
 
 	/**
 	 * orderdetail:
 	 */
+	private String foodType;
+	
+	public String getFoodType() {
+		return foodType;
+	}
+
+	public void setFoodType(String foodType) {
+		this.foodType = foodType;
+	}
+
 	private Set<Orderdetail> orderdetailSet = new HashSet<Orderdetail>(0);
 
 	public Food() {
 		super();
 	}
 
-	public Food(int foodid, String foodname, double price, double mprice,
-			String remark, String img, Foodtype foodtype,
-			Set<Orderdetail> orderdetailSet) {
-		super();
-		this.foodid = foodid;
-		this.foodname = foodname;
-		this.price = price;
-		this.mprice = mprice;
-		this.remark = remark;
-		this.img = img;
-		this.foodtype = foodtype;
-		this.orderdetailSet = orderdetailSet;
+	public int getFoodId() {
+		return foodId;
 	}
 
-	public void setFoodid(int foodid) {
-		this.foodid = foodid;
+	public void setFoodId(int foodId) {
+		this.foodId = foodId;
 	}
 
-	public int getFoodid() {
-		return foodid;
+	public String getFoodName() {
+		return foodName;
 	}
 
-	public void setFoodname(String foodname) {
-		this.foodname = foodname;
-	}
-
-	public String getFoodname() {
-		return foodname;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
 	}
 
 	public double getPrice() {
 		return price;
 	}
 
-	public void setMprice(double mprice) {
-		this.mprice = mprice;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public double getMprice() {
 		return mprice;
 	}
 
-	public void setRemark(String remark) {
-		this.remark = remark;
+	public void setMprice(double mprice) {
+		this.mprice = mprice;
 	}
 
 	public String getRemark() {
 		return remark;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public String getImg() {
 		return img;
 	}
 
-	public void setFoodtype(Foodtype foodtype) {
-		this.foodtype = foodtype;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
-	public Foodtype getFoodtype() {
-		return foodtype;
+	public int getFoodType_id() {
+		return foodType_id;
 	}
 
-	public void setOrderdetailSet(Set<Orderdetail> orderdetailSet) {
-		this.orderdetailSet = orderdetailSet;
+	public void setFoodType_id(int foodType_id) {
+		this.foodType_id = foodType_id;
 	}
 
 	public Set<Orderdetail> getOrderdetailSet() {
 		return orderdetailSet;
 	}
 
-	public String toString() {
-		return "Food [foodid=" + foodid + ",foodname=" + foodname + ",price="
-				+ price + ",mprice=" + mprice + ",remark=" + remark + ",img="
-				+ img + ",foodtype=" + foodtype + ",orderdetailSet="
-				+ orderdetailSet + "]";
+	public void setOrderdetailSet(Set<Orderdetail> orderdetailSet) {
+		this.orderdetailSet = orderdetailSet;
 	}
 
+	public Food(int foodId, String foodName, double price, double mprice,
+			String remark, String img, int foodType_id,
+			Set<Orderdetail> orderdetailSet) {
+		super();
+		this.foodId = foodId;
+		this.foodName = foodName;
+		this.price = price;
+		this.mprice = mprice;
+		this.remark = remark;
+		this.img = img;
+		this.foodType_id = foodType_id;
+		this.orderdetailSet = orderdetailSet;
+	}
+
+	@Override
+	public String toString() {
+		return "Food [foodId=" + foodId + ", foodName=" + foodName + ", price="
+				+ price + ", mprice=" + mprice + ", remark=" + remark
+				+ ", img=" + img + ", foodType_id=" + foodType_id
+				+ ", foodType=" + foodType + ", orderdetailSet="
+				+ orderdetailSet + "]";
+	}
+	
 }

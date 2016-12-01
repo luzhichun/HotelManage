@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="Food" type="cn.edu.njtech.entity.Food"/>
+	<select id="selectAll" parameterClass="java.util.Map" resultClass="Food">
+		select f.*,ft.typeName as foodType from food f , foodType ft where f.foodType_id=ft.foodTypeId and foodName like concat('%', #foodName#, '%') limit #currentPage#,#pageSize#
+	</select>
+	<insert id="addFood" parameterClass="Food" >
+		insert into food(foodName,foodType_id,price,mprice,remark,img)values(#foodName#,#foodType_id#,#price#,#mprice#,#remark#,#img#)
+		<selectKey resultClass="int" keyProperty="foodId">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+	</insert>
+	<select id="selectFoodByName" parameterClass="java.lang.String" resultClass="Food">
+		select * from food where foodName=#foodName#
+	</select>
+	<select id="getFoodNum" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+		select count(*) from food where foodName like concat('%', #foodName#, '%')
+	</select>
+	<select id="selectById" parameterClass="java.lang.Integer" resultClass="Food">
+		select *  from food where foodId=#foodId#
+	</select>
+	<update id="updateFood" parameterClass="Food">
+		update food set foodName=#foodName#,foodType_id=#foodType_id#,price=#price#,mprice=#mprice#,remark=#remark#,img=#img# where foodId=#foodId#
+	</update>
+	<delete id="deleteFood" parameterClass="java.lang.Integer">
+		delete from food where foodId=#foodId#
+	</delete>
+</sqlMap>
