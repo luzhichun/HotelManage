@@ -25,6 +25,10 @@ public class LoginFilter implements Filter {
 		String path = request.getRequestURI();
 		//System.out.println(path);
 		User u=(User) request.getSession().getAttribute("User");
+		if(path.contains("fore.jsp")||path.contains("wdetail")){
+			chain.doFilter(request, response);
+			return;
+		}
 		if(path.contains("index.jsp")){
 			chain.doFilter(request, response);
 			return;

@@ -88,5 +88,12 @@ public class Dinnertable implements Serializable {
 		this.orderDate = orderDate;
 		this.ordersSet = ordersSet;
 	}
+
+	@Override
+	public String toString() {
+		return "Dinnertable [tableId=" + tableId + ", tableName=" + tableName
+				+ ", tableStatus=" + tableStatus + ", orderDate=" + orderDate
+				+ ", ordersSet=" + ordersSet + "]";
+	}
 	
 }

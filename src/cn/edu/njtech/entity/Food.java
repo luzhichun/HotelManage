@@ -59,7 +59,7 @@ public class Food implements Serializable {
 		this.foodType = foodType;
 	}
 
-	private Set<Orderdetail> orderdetailSet = new HashSet<Orderdetail>(0);
+	private Set<OrderDetail> orderdetailSet = new HashSet<OrderDetail>(0);
 
 	public Food() {
 		super();
@@ -121,17 +121,17 @@ public class Food implements Serializable {
 		this.foodType_id = foodType_id;
 	}
 
-	public Set<Orderdetail> getOrderdetailSet() {
+	public Set<OrderDetail> getOrderdetailSet() {
 		return orderdetailSet;
 	}
 
-	public void setOrderdetailSet(Set<Orderdetail> orderdetailSet) {
+	public void setOrderdetailSet(Set<OrderDetail> orderdetailSet) {
 		this.orderdetailSet = orderdetailSet;
 	}
 
 	public Food(int foodId, String foodName, double price, double mprice,
 			String remark, String img, int foodType_id,
-			Set<Orderdetail> orderdetailSet) {
+			Set<OrderDetail> orderdetailSet) {
 		super();
 		this.foodId = foodId;
 		this.foodName = foodName;

@@ -1,7 +1,9 @@
 package cn.edu.njtech.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,102 +18,105 @@ public class Orders implements Serializable {
 	/**
 	 * ordersId:
 	 */
-	private int ordersid;
+	private int ordersId;
 
 	/**
 	 * orderDate:
 	 */
-	private Date orderdate;
+	private String orderDate;
 
 	/**
 	 * totalPrice:
 	 */
-	private double totalprice;
+	private double totalPrice;
 
 	/**
 	 * orderStatus:
 	 */
-	private int orderstatus;
+	private int orderStatus;
 
 	/**
 	 * dinnertable:
 	 */
-	private Dinnertable dinnertable;
+	private int tableId;
+	private String tableName;
 
 	/**
 	 * orderdetail:
 	 */
-	private Set<Orderdetail> orderdetailSet = new HashSet<Orderdetail>(0);
+	private Set<OrderDetail> orderdetailSet = new HashSet<OrderDetail>(0);
 
 	public Orders() {
 		super();
 	}
 
-	public Orders(int ordersid, Date orderdate, double totalprice,
-			int orderstatus, Dinnertable dinnertable,
-			Set<Orderdetail> orderdetailSet) {
-		super();
-		this.ordersid = ordersid;
-		this.orderdate = orderdate;
-		this.totalprice = totalprice;
-		this.orderstatus = orderstatus;
-		this.dinnertable = dinnertable;
-		this.orderdetailSet = orderdetailSet;
+	public int getOrdersId() {
+		return ordersId;
 	}
 
-	public void setOrdersid(int ordersid) {
-		this.ordersid = ordersid;
+	public void setOrdersId(int ordersId) {
+		this.ordersId = ordersId;
 	}
 
-	public int getOrdersid() {
-		return ordersid;
+	public String getOrderDate() {
+		return orderDate;
 	}
 
-	public void setOrderdate(Date orderdate) {
-		this.orderdate = orderdate;
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
 	}
 
-	public Date getOrderdate() {
-		return orderdate;
+	public double getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setTotalprice(double totalprice) {
-		this.totalprice = totalprice;
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
-	public double getTotalprice() {
-		return totalprice;
+	public int getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setOrderstatus(int orderstatus) {
-		this.orderstatus = orderstatus;
+	public void setOrderStatus(int orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
-	public int getOrderstatus() {
-		return orderstatus;
+	public int getTableId() {
+		return tableId;
 	}
 
-	public void setDinnertable(Dinnertable dinnertable) {
-		this.dinnertable = dinnertable;
+	public void setTableId(int tableId) {
+		this.tableId = tableId;
 	}
 
-	public Dinnertable getDinnertable() {
-		return dinnertable;
+	public String getTableName() {
+		return tableName;
 	}
 
-	public void setOrderdetailSet(Set<Orderdetail> orderdetailSet) {
-		this.orderdetailSet = orderdetailSet;
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 
-	public Set<Orderdetail> getOrderdetailSet() {
+	public Set<OrderDetail> getOrderdetailSet() {
 		return orderdetailSet;
 	}
 
-	public String toString() {
-		return "Orders [ordersid=" + ordersid + ",orderdate=" + orderdate
-				+ ",totalprice=" + totalprice + ",orderstatus=" + orderstatus
-				+ ",dinnertable=" + dinnertable + ",orderdetailSet="
-				+ orderdetailSet + "]";
+	public void setOrderdetailSet(Set<OrderDetail> orderdetailSet) {
+		this.orderdetailSet = orderdetailSet;
 	}
 
+	public Orders(int ordersId, String orderDate, double totalPrice,
+			int orderStatus, int tableId, String tableName,
+			Set<OrderDetail> orderdetailSet) {
+		super();
+		this.ordersId = ordersId;
+		this.orderDate = orderDate;
+		this.totalPrice = totalPrice;
+		this.orderStatus = orderStatus;
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.orderdetailSet = orderdetailSet;
+	}
+	
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="Orders" type="cn.edu.njtech.entity.Orders"/>
+	<typeAlias alias="OrderDetail" type="cn.edu.njtech.entity.OrderDetail"/>
+	<typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable"/>
+	<typeAlias alias="Food" type="cn.edu.njtech.entity.Food"/>
+	<select id="getFreeTable" parameterClass="java.lang.Integer" resultClass="Dinnertable">
+		select *  from dinnerTable where tableStatus=0 limit #currentPage#,4
+	</select>
+	<select id="getFreeTableNum" resultClass="java.lang.Integer">
+		select count(*)  from dinnerTable where tableStatus=0
+	</select>
+	<select id="showFoodMenu" parameterClass="java.util.Map" resultClass="Food">
+		select *  from food where foodName like concat('%', #foodName#, '%') limit #currentPage#,#pageSize#
+	</select>
+	<select id="showFoodMenuByTypeId" parameterClass="java.util.Map" resultClass="Food" >
+		select *  from food where foodName like concat('%', #foodName#, '%') and foodType_id=#foodType_id#  limit #currentPage#,#pageSize#	
+	</select>
+</sqlMap>

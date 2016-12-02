@@ -20,7 +20,6 @@ $(function() {
 				var result = list.result;
 				$("#name_msg").html(result);
 			},
-
 		});
 	});
 });

@@ -85,5 +85,14 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		<!-- 点餐的action -->
+		<action name="tableList" class="ForeMenuAction" method="getFreeTable">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="menus" class="ForeMenuAction" method="menusList">
+			<result name="success" type="redirect">wdetail/caidan.jsp</result>
+		</action>
 	</package>
 </struts>
