@@ -118,5 +118,13 @@ public class Orders implements Serializable {
 		this.tableName = tableName;
 		this.orderdetailSet = orderdetailSet;
 	}
+
+	@Override
+	public String toString() {
+		return "Orders [ordersId=" + ordersId + ", orderDate=" + orderDate
+				+ ", totalPrice=" + totalPrice + ", orderStatus=" + orderStatus
+				+ ", tableId=" + tableId + ", tableName=" + tableName
+				+ ", orderdetailSet=" + orderdetailSet + "]";
+	}
 	
 }

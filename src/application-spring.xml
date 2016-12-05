@@ -41,6 +41,10 @@
 		<property name="sqlMapClient" ref="sqlMapClient">
 		</property>
 	</bean>
+	<bean id="OrderDAOImpl" class="cn.edu.njtech.dao.impl.OrderDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient">
+		</property>
+	</bean>
 	<!-- Service配置 -->
 	<bean id="FoodServiceImpl" class="cn.edu.njtech.service.impl.FoodServiceImpl">
 		<property name="dao" ref="FoodDAOImpl"></property>
@@ -53,6 +57,9 @@
 	</bean>
 	<bean id="ForeServiceImpl" class="cn.edu.njtech.service.impl.ForeServiceImpl">
 		<property name="foreDao" ref="ForeDAOImpl"></property>
+	</bean>
+	<bean id="OrderServiceImpl" class="cn.edu.njtech.service.impl.OrderServiceImpl">
+		<property name="orderDao" ref="OrderDAOImpl"></property>
 	</bean>
 	<!-- Action配置 -->
 	<bean id="FoodTypeAction" class="cn.edu.njtech.mvc.action.FoodTypeAction">
@@ -70,5 +77,9 @@
 	<bean id="ForeMenuAction" class="cn.edu.njtech.mvc.action.ForeMenuAction">
 		<property name="foreService" ref="ForeServiceImpl"></property>
 		<property name="foodService" ref="FoodServiceImpl"></property>
+	</bean>
+	<bean id="OrderDealAction" class="cn.edu.njtech.mvc.action.OrderDealAction">
+		<property name="orderService" ref="OrderServiceImpl"></property>
+		<property name="foreService" ref="ForeServiceImpl"></property>
 	</bean>
 </beans>

@@ -7,4 +7,5 @@
 	<sqlMap resource="cn/edu/njtech/entity/T_User.xml"/>
 	<sqlMap resource="cn/edu/njtech/entity/T_Food.xml"/>
 	<sqlMap resource="cn/edu/njtech/entity/T_Order.xml"/>
+	<sqlMap resource="cn/edu/njtech/entity/T_OrderDetail.xml"/>
 </sqlMapConfig>

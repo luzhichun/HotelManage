@@ -41,11 +41,11 @@
 			</thead>
 			<!--显示数据列表 -->
 			<tbody id="TableData">
-				<c:if test="${list!=null}">
-					<c:forEach items="${list}" var="od">
+				<c:if test="${orderDetail!=null}">
+					<c:forEach items="${orderDetail}" var="od">
 						<tr height="60">
 				 		<td>${od.foodName}</td>
-				 		<td>${od.foodPrice}</td>
+				 		<td>${od.price}</td>
 				 		<td>${od.foodCount}</td>
 			 		</tr>
 					</c:forEach>

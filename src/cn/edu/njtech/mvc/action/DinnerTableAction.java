@@ -20,6 +20,14 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 	private Dinnertable dinnerTable=new Dinnertable();
 	private int currentPage=1;
 	Map<String,Object> map=new HashMap<String,Object>();
+	private String tableName;
+	
+	public String getTableName() {
+		return tableName;
+	}
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 		this.session=arg0;
@@ -49,6 +57,8 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		String name=keyword;
 		if(name==null){
 			name="";
+		}else{
+			page.setCurrentPage(1);
 		}
 		int total=dinnerTableService.getCounts(name);
 		page.setTotalPage((total-1)/page.getPageSize()+1);
@@ -65,12 +75,15 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 	}
 	public String addTable() throws Exception{
 		Dinnertable dt=new Dinnertable();
-		String tableName=dinnerTable.getTableName();
+		map.put("tableName", dinnerTable.getTableName());
 		List<Dinnertable> list=dinnerTableService.selectAll(map);
+		System.out.println(tableName+"1231");
+		System.out.println(list+"123qw1");
+		System.out.println(dinnerTable.getTableName()+"11111");
 		if(list.size()>0){
 			return ERROR;
 		}
-		dt.setTableName(tableName);
+		dt.setTableName(dinnerTable.getTableName());
 	//	dt.setTablename(0);
 		dt.setOrderDate(null);
 		if(dinnerTableService.addTable(dt)>0){

@@ -31,6 +31,14 @@ public class OrderDetail implements Serializable {
 	 */
 	private int food_id;
 	private String foodName;
+	private double price;
+	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	public OrderDetail() {
 		super();
 	}
@@ -73,6 +81,12 @@ public class OrderDetail implements Serializable {
 		this.orderId = orderId;
 		this.food_id = food_id;
 		this.foodName = foodName;
+	}
+	@Override
+	public String toString() {
+		return "OrderDetail [orderDetailId=" + orderDetailId + ", foodCount="
+				+ foodCount + ", orderId=" + orderId + ", food_id=" + food_id
+				+ ", foodName=" + foodName + ", price=" + price + "]";
 	}
 	
 }

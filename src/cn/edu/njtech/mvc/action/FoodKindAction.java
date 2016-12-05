@@ -138,6 +138,8 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 		String name = keyword;
 		if (name == null) {
 			name = "";
+		}else{
+			page.setCurrentPage(1);
 		}
 		int total = foodService.getFoodNum(name);
 		page.setTotalPage((total - 1) / page.getPageSize() + 1);

@@ -15,7 +15,7 @@
     </select>
     <insert id="insertTable" parameterClass="Dinnertable">
     	insert into dinnerTable(tableName,tableStatus,orderDate) values(#tableName#,#tableStatus#,#orderDate#)
-    	<selectKey resultClass="int" keyProperty="tableid">
+    	<selectKey resultClass="int" keyProperty="tableId">
 			SELECT @@IDENTITY AS ID
 		</selectKey>
     </insert>

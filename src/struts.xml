@@ -94,5 +94,40 @@
 		<action name="menus" class="ForeMenuAction" method="menusList">
 			<result name="success" type="redirect">wdetail/caidan.jsp</result>
 		</action>
+		<action name="menusByType" class="ForeMenuAction" method="menusByType">
+			<result name="success" type="redirect">wdetail/caidan.jsp</result>
+		</action>
+		<action name="foodInfor" class="ForeMenuAction" method="foodInformation">
+			<result name="success" type="redirect">wdetail/caixiangxi.jsp</result>
+		</action>
+		<action name="clientCart" class="ForeMenuAction" method="createOrderDetail" >
+			<result name="success" type="redirect">cart</result>
+		</action>
+		<action name="cart" class="ForeMenuAction" method="dealOrderDetail" >
+			<result name="success" type="redirect">wdetail/clientCart.jsp</result>
+		</action>
+		<action name="changeCount" class="ForeMenuAction" method="changeCount">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="deleteDetail" class="ForeMenuAction" method="deleteDetail" >
+			<result name="success" type="redirect">cart</result>
+		</action>
+		<action name="createOrder" class="ForeMenuAction" method="createOrder" >
+			<result name="success" type="redirect">wdetail/clientOrderList.jsp</result>
+		</action>
+		<action name="jiezhang" class="ForeMenuAction" method="jiezhang" >
+			<result name="success" type="redirect">wdetail/jiezhang.jsp</result>
+		</action>
+		<action name="orderList" class="OrderDealAction" method="showOrderList" >
+			<result name="success" type="redirect">detail/orderList.jsp</result>
+		</action>
+		<action name="orderDetail" class="OrderDealAction" method="showOrderDetailList" >
+			<result name="success" type="redirect">detail/orderDetail.jsp</result>
+		</action>
+		<action name="changOrders" class="OrderDealAction" method="changOrders" >
+			<result name="success" type="redirect">detail/orderList</result>
+		</action>
 	</package>
 </struts>

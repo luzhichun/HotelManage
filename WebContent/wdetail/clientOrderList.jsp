@@ -1,4 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -6,8 +7,7 @@
 	<script type="text/javascript">
 		// 通知服务员结账
 		function callPay(node) {
-			var orderId = node.lang;
-			window.location.href = "jiezhang.jsp";
+			window.location.href = "jiezhang";
 		}
 	</script>
 </head>
@@ -24,21 +24,21 @@
 				 		<td align="center" width="20%">数量</td>
 				 		<td align="center" width="20%">小计</td>
 				 	</tr>
-					
-
-					<tr height="60">
-					 		<td align="center" width="20%">烤乳猪</td>
-					 		<td align="center" width="20%">￥68.0</td>
-					 		<td align="center" width="20%">1</td>
-					 		<td align="center" width="20%">68.0</td>
+					<c:if test="${odList!=null }">
+						<c:forEach items="${odList}" var="od">
+							<tr height="60">
+					 		<td align="center" width="20%">${od.foodName}</td>
+					 		<td align="center" width="20%">&yen;${od.price}</td>
+					 		<td align="center" width="20%">${od.foodCount}</td>
+					 		<td align="center" width="20%">&yen;${od.price*od.foodCount}</td>
 				 		</tr>
-				 	
-
+						</c:forEach>
+					</c:if>
 					<tr>
 						<td colspan="6" align="right">总计:
 							<span style="font-size:36px;">&yen;</span>
 							<label
-								id="counter" style="font-size:36px">68.0</label>
+								id="counter" style="font-size:36px">${totalPay}</label>
 						</td>
 					</tr>
 					<tr>
@@ -56,59 +56,42 @@
 			<div id="dish_top">
 				<ul>
 					<li class="dish_num"></li>
-					<li>
-						<a href="clientOrderList.jsp">
-							<img src="style/images/call2.gif" />
-						</a>
-					</li>
+					<li><a href="clientOrderList.jsp"> <img
+							src="style/images/call2.gif" />
+					</a></li>
 				</ul>
 			</div>
 
 			<div id="dish_2">
 				<ul>
-					
-						<li>
-							<a href="caidan.jsp">粤菜</a>
-						</li>
-					
-						<li>
-							<a href="chuancai.jsp">川菜</a>
-						</li>
-					
-						<li>
-							<a href="chuancai.jsp">湘菜</a>
-						</li>
-					
-						<li>
-							<a href="chuancai.jsp">东北菜</a>
-						</li>
-					
+					<c:if test="${ftl!=null }">
+						<c:forEach items="${ftl}" var="ft">
+							<li><a href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}">${ft.typename}</a></li>
+						</c:forEach>
+					</c:if>
 				</ul>
 			</div>
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
-				<form action="/wirelessplatform/food.jsp" method="post">
+				<form action="menus" method="post">
 					<table width="166px">
 						<tr>
-							<td>
-								<input type="text" id="dish_name" name="foodName" class="select_value" /> 
-								<input type="hidden" value="selectFood" name="method">
-							</td>
+							<td><input type="text" id="dish_name" name="foodName"
+								class="select_value" /> <input type="hidden" value="selectFood"
+								name="method"></td>
 						</tr>
 						<tr>
 							<td><input type="submit" id="sub" value="" /></td>
 						</tr>
 						<tr>
-							<td>
-								<a href="/wirelessplatform/food.jsp?method=selectFood">
-									<img src="style/images/look.gif" />
-								</a>
-							</td>
+							<td><a href="menus?foodName=${null}"> <img src="style/images/look.gif" />
+							</a></td>
 						</tr>
 					</table>
 				</form>
 			</div>
 		</div>
+
 		
 	</div>
 </body>

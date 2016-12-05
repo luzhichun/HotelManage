@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"     
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="Orders" type="cn.edu.njtech.entity.Orders"/>
+	<typeAlias alias="OrderDetail" type="cn.edu.njtech.entity.OrderDetail"/>
+	<typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable"/>
+	<typeAlias alias="Food" type="cn.edu.njtech.entity.Food"/>
+	<insert id="addOrderDetail" parameterClass="OrderDetail">
+		insert into orderDetail(orderId,food_id,foodCount)value(#orderId#,#food_id#,#foodCount#)
+		<selectKey resultClass="int" keyProperty="orderDetailId">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+	</insert>
+	<delete id="deleteDetailByFoodId" parameterClass="OrderDetail">
+		delete from orderDetail where orderId=#orderId# and food_id=#food_id#
+	</delete>
+	<update id="updateDetail" parameterClass="OrderDetail">
+		update orderDetail set foodCount=#foodCount# where orderId=#orderId# and food_id=#food_id#
+	</update>
+	<select id="selectDetailByOrderIdAndFoodId" parameterClass="OrderDetail" resultClass="OrderDetail">
+		select * from orderDetail where orderId=#orderId# and food_id=#food_id#
+	</select>
+	<select id="selectOrderDetail" parameterClass="java.lang.Integer" resultClass="OrderDetail">
+		select od.* ,f.foodName, f.price from orderDetail od ,food f where orderId=#orderId# and od.food_id=f.foodId
+	</select>
+</sqlMap>

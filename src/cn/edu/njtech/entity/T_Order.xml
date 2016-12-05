@@ -6,6 +6,7 @@
 	<typeAlias alias="OrderDetail" type="cn.edu.njtech.entity.OrderDetail"/>
 	<typeAlias alias="Dinnertable" type="cn.edu.njtech.entity.Dinnertable"/>
 	<typeAlias alias="Food" type="cn.edu.njtech.entity.Food"/>
+	<typeAlias alias="Page" type="cn.edu.njtech.common.Page"/>
 	<select id="getFreeTable" parameterClass="java.lang.Integer" resultClass="Dinnertable">
 		select *  from dinnerTable where tableStatus=0 limit #currentPage#,4
 	</select>
@@ -17,5 +18,32 @@
 	</select>
 	<select id="showFoodMenuByTypeId" parameterClass="java.util.Map" resultClass="Food" >
 		select *  from food where foodName like concat('%', #foodName#, '%') and foodType_id=#foodType_id#  limit #currentPage#,#pageSize#	
+	</select>
+	<select id="selectByFoodId" parameterClass="java.lang.Integer" resultClass="Food">
+		select *  from food where foodId=#foodId#
+	</select>
+	<update id="updateDinnerTable" parameterClass="Dinnertable">
+		update dinnerTable set tableStatus=#tableStatus#,orderDate=#orderDate# where tableId=#tableId#
+	</update>
+	<insert id="addOrder" parameterClass="Orders">
+		insert into orders(orderDate,orderStatus,tableId,totalPrice)value(#orderDate#,#orderStatus#,#tableId#,#totalPrice#)
+		<selectKey resultClass="int" keyProperty="ordersId">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+	</insert>
+	<select id="selectByTableId" parameterClass="java.lang.Integer" resultClass="Dinnertable">
+		select *  from dinnerTable where tableId=#tableId# and tableStatus=1
+	</select>
+	<select id="selectOrderByTableId" parameterClass="java.lang.Integer" resultClass="Orders">
+		select *  from orders where tableId=#tableId# and orderStatus=0
+	</select>
+	<update id="updateOrders" parameterClass="Orders">
+		update orders set totalPrice=#totalPrice# ,orderStatus=#orderStatus# where ordersId=#ordersId#	
+	</update>
+	<select id="selectAllOrder" parameterClass="Page" resultClass="Orders">
+		select o.*,d.tableName  from orders o,dinnerTable d where o.tableId=d.tableId limit #currentPage#,#pageSize#
+	</select>
+	<select id="selectOrderDetailByOrderId" parameterClass="java.util.Map" resultClass="OrderDetail">
+		SELECT o.*,f.foodName from orderDetail o ,food f where o.orderId=#orderId# and o.food_id=f.foodId limit #currentPage#,#pageSize#
 	</select>
 </sqlMap>

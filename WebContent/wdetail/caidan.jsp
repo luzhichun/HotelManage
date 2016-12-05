@@ -26,15 +26,15 @@
 							<li>
 								<dl>
 									<dt>
-										<a href="caixiangxi.jsp"> <img width="214px"
+										<a href="foodInfor?foodId=${fd.foodId}"> <img width="214px"
 											height="145px" src="../upload/${fd.img}" />
 										</a>
 									</dt>
 									<dd class="f1">
-										<a href="caixiangxi.jsp">${fd.foodName}</a>
+										<a href="foodInfor?foodId=${fd.foodId}">${fd.foodName}</a>
 									</dd>
 									<dd class="f2">
-										<a href="caixiangxi.jsp">&yen;${fd.price}</a>
+										<a href="foodInfor?foodId=${fd.foodId}">&yen;${fd.price}</a>
 									</dd>
 								</dl>
 							</li>
@@ -80,14 +80,14 @@
 				<ul>
 					<c:if test="${ftl!=null }">
 						<c:forEach items="${ftl}" var="ft">
-							<li><a href="caidan?foodtypeid=${ft.foodtypeid}">${ft.typename}</a></li>
+							<li><a href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}">${ft.typename}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
 			</div>
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
-				<form action="#" method="post">
+				<form action="menus" method="post">
 					<table width="166px">
 						<tr>
 							<td><input type="text" id="dish_name" name="foodName"
@@ -98,7 +98,7 @@
 							<td><input type="submit" id="sub" value="" /></td>
 						</tr>
 						<tr>
-							<td><a href="#"> <img src="style/images/look.gif" />
+							<td><a href="menus?foodName=${null}"> <img src="style/images/look.gif" />
 							</a></td>
 						</tr>
 					</table>
