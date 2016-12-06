@@ -16,6 +16,7 @@
 		<action name="Login" class="LoginAction" method="login">
 			<result name="success" type="redirect">background.jsp</result>
 			<result name="error" type="redirect">index.jsp</result>
+			<result name="fore" type="redirect">fore.jsp</result>
 		</action>
 		<action name="return" class="LoginAction" method="returnSystem">
 			<result name="success" type="redirect">index.jsp</result>

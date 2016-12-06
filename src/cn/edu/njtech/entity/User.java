@@ -63,7 +63,7 @@ public class User implements Serializable {
 	/**
 	 * usertype:
 	 */
-	private Usertype usertype;
+	private int usertypeId;
 
 	public User() {
 		super();
@@ -71,7 +71,7 @@ public class User implements Serializable {
 
 	public User(int id, String name, String pwd, String tel, String addr,
 			String email, String picture, String age, String remark,
-			String position, Usertype usertype) {
+			String position, int usertype) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -83,7 +83,7 @@ public class User implements Serializable {
 		this.age = age;
 		this.remark = remark;
 		this.position = position;
-		this.usertype = usertype;
+		this.usertypeId = usertype;
 	}
 
 	public void setId(int id) {
@@ -166,19 +166,19 @@ public class User implements Serializable {
 		return position;
 	}
 
-	public void setUsertype(Usertype usertype) {
-		this.usertype = usertype;
+	public void setUsertype(int usertype) {
+		this.usertypeId = usertype;
 	}
 
-	public Usertype getUsertype() {
-		return usertype;
+	public int getUsertype() {
+		return usertypeId;
 	}
 
 	public String toString() {
 		return "User [id=" + id + ",name=" + name + ",pwd=" + pwd + ",tel="
 				+ tel + ",addr=" + addr + ",email=" + email + ",picture="
 				+ picture + ",age=" + age + ",remark=" + remark + ",position="
-				+ position + ",usertype=" + usertype + "]";
+				+ position + ",usertypeId=" + usertypeId + "]";
 	}
 
 }
