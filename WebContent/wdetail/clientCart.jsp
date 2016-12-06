@@ -15,8 +15,9 @@
 	// 修改菜品项数量
 	function alterSorder(food_id,price,orderId,node) {
 		var count=node.value;
+		var total=price*count;
 		$(function(){
-			$("#sun").html(count*price);
+			console.debug($(node).nextUntil("td").html(total));
 			$.ajax({
 				type:"POST",
 				url:"changeCount",

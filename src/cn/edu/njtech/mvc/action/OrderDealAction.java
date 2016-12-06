@@ -61,6 +61,9 @@ public class OrderDealAction extends ActionSupport implements SessionAware {
 		map.put("currentPage", page.getCurrentPage());
 		map.put("pageSize",page.getPageSize());
 		List<OrderDetail> list=orderService.showOrderDetail(map);
+		for (OrderDetail orderDetail : list) {
+			System.out.println(orderDetail);
+		}
 		orderSession.put("orderDetail", list);
 		return SUCCESS;
 	}

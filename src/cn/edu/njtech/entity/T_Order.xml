@@ -44,6 +44,6 @@
 		select o.*,d.tableName  from orders o,dinnerTable d where o.tableId=d.tableId limit #currentPage#,#pageSize#
 	</select>
 	<select id="selectOrderDetailByOrderId" parameterClass="java.util.Map" resultClass="OrderDetail">
-		SELECT o.*,f.foodName from orderDetail o ,food f where o.orderId=#orderId# and o.food_id=f.foodId limit #currentPage#,#pageSize#
+		SELECT o.*,f.foodName, f.price from orderDetail o ,food f where o.orderId=#orderId# and o.food_id=f.foodId limit #currentPage#,#pageSize#
 	</select>
 </sqlMap>
