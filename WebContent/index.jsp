@@ -23,5 +23,6 @@
    		密    码<input type="password" name="pwd"/>
    		<input type="submit" value="登录"/>
    	</form>
+   	<a href="fore.jsp">点菜</a>
   </body>
 </html>
