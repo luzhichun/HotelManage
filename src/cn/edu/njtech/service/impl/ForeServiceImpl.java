@@ -7,6 +7,7 @@ import java.util.Map;
 import cn.edu.njtech.dao.IForeDAO;
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.entity.Food;
+import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 import cn.edu.njtech.service.IForeService;
@@ -217,6 +218,45 @@ public class ForeServiceImpl implements IForeService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public int getFood() {
+		// TODO Auto-generated method stub
+		int result = 0;
+		try {
+			result = foreDao.getFood();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int getFoodByFoodType(int id) {
+		// TODO Auto-generated method stub
+		int result = 0;
+		try {
+			result = foreDao.getFoodByFoodType(id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<Foodtype> getFoodType(int currentPage) {
+		// TODO Auto-generated method stub
+		List<Foodtype> list = null;
+		try {
+			list = foreDao.getFoodType(currentPage);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

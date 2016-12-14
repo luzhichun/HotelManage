@@ -25,6 +25,16 @@ import com.opensymphony.xwork2.ModelDriven;
 public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDetail>, SessionAware{
 	private IForeService foreService;
 	private IFoodService foodService;
+	private int type=0;
+	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public IFoodService getFoodService() {
 		return foodService;
 	}
@@ -41,6 +51,25 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 	private int oid;
 	private OrderDetail od=new OrderDetail();
 	private double totalPay=0;
+	private int FFcurrentPage=1;
+	private int FTcurrentPage=1;
+	
+	public int getFTcurrentPage() {
+		return FTcurrentPage;
+	}
+
+	public void setFTcurrentPage(int fTcurrentPage) {
+		FTcurrentPage = fTcurrentPage;
+	}
+
+	public int getFFcurrentPage() {
+		return FFcurrentPage;
+	}
+
+	public void setFFcurrentPage(int fFcurrentPage) {
+		FFcurrentPage = fFcurrentPage;
+	}
+
 	@Override
 	public OrderDetail getModel() {
 		// TODO Auto-generated method stub
@@ -120,6 +149,20 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		this.result = jo.toString();
 		return SUCCESS;
 	}
+	public String getFoodType(){
+		Map<String, Object> chatroom = new HashMap<String, Object>();
+		Page typePage=new Page(1, 4);
+		typePage.setCurrentPage(FTcurrentPage);
+		List<Foodtype> foodTypeList=foreService.getFoodType(typePage.getCurrentPage());
+		int total=foodService.selectAllFoodType("").size();
+		foreSession.put("FTtotalPage",(total-1)/typePage.getPageSize()+1);
+		System.out.println();
+		foreSession.put("FTcurrentPage", FTcurrentPage);
+		chatroom.put("list", foodTypeList);
+		JSONObject jo = JSONObject.fromObject(chatroom);
+		this.result = jo.toString();
+		return SUCCESS;
+	}
 	public String menusList(){
 		System.out.println(tableId);
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
@@ -147,7 +190,11 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 			o.setTotalPrice(0.0);
 			foreService.addOrders(o);
 		}
-		List<Foodtype> foodTypeList=foodService.selectAllFoodType("");
+		Page typePage=new Page(1, 4);
+		List<Foodtype> foodTypeList=foreService.getFoodType(typePage.getCurrentPage());
+		int total=foodService.selectAllFoodType("").size();
+		foreSession.put("FTtotalPage",(total-1)/typePage.getPageSize()+1);
+		foreSession.put("FTcurrentPage", FTcurrentPage);
 		foreSession.put("ftl", foodTypeList);
 		Map<String,Object>map=new HashMap<String, Object>();
 		if(foodName==null){
@@ -155,11 +202,17 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		}
 		System.out.println(foodName);
 		Page page=new Page(1, 6);
+		page.setCurrentPage(FFcurrentPage);
 		map.put("foodName", foodName);
 		map.put("currentPage",page.getCurrentPage());
 		map.put("pageSize",page.getPageSize());
 		List<Food> foodList=foreService.showFoodMenu(map);
+		int ffsize=foreService.getFood();
+		page.setTotalPage((ffsize-1)/page.getPageSize()+1);
+		foreSession.put("FFtotalPage", page.getTotalPage());
 		foreSession.put("foodList", foodList);
+		foreSession.put("FFcurrentPage",FFcurrentPage);
+		foreSession.put("type",type);
 		return SUCCESS;
 	}
 	public String menusByType(){
@@ -168,12 +221,18 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 			foodName="";
 		}
 		Page page=new Page(1, 6);
+		page.setCurrentPage(FFcurrentPage);
 		map.put("foodName", foodName);
 		map.put("currentPage",page.getCurrentPage());
 		map.put("pageSize",page.getPageSize());
 		map.put("foodType_id", foodtypeid);
+		int ffsize=foreService.getFoodByFoodType(foodtypeid);
+		page.setTotalPage((ffsize-1)/page.getPageSize()+1);
 		List<Food> foodList=foreService.showFoodMenuByTypeId(map);
 		foreSession.put("foodList", foodList);
+		foreSession.put("FFtotalPage", page.getTotalPage());
+		foreSession.put("FFcurrentPage",FFcurrentPage);
+		foreSession.put("type",type);
 		return SUCCESS;
 	}
 	public String foodInformation(){

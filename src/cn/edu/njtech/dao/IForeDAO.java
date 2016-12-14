@@ -8,6 +8,7 @@ import org.springframework.core.annotation.Order;
 
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.entity.Food;
+import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
@@ -27,4 +28,7 @@ public interface IForeDAO {
 	public List<OrderDetail> getOrderDetailByOrderId(OrderDetail od)throws SQLException;
 	public List<OrderDetail> selectOrderDetailById(int id)throws SQLException;
 	public int updateOrder(Orders o)throws SQLException;
+	public int getFood()throws SQLException;
+	public int getFoodByFoodType(int id)throws SQLException;
+	public List<Foodtype> getFoodType(int currentPage) throws SQLException;
 }

@@ -9,6 +9,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import cn.edu.njtech.dao.IForeDAO;
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.entity.Food;
+import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
@@ -112,6 +113,24 @@ public class ForeDAOImpl extends SqlMapClientDaoSupport implements IForeDAO{
 	public int updateOrder(Orders o) throws SQLException {
 		// TODO Auto-generated method stub
 		return getSqlMapClientTemplate().update("updateOrders", o);
+	}
+
+	@Override
+	public int getFood() throws SQLException {
+		// TODO Auto-generated method stub
+		return (int) getSqlMapClientTemplate().queryForList("FoodSize").get(0);
+	}
+
+	@Override
+	public int getFoodByFoodType(int id) throws SQLException {
+		// TODO Auto-generated method stub
+		return (int) getSqlMapClientTemplate().queryForList("FoodSizeByFoodType", id).get(0);
+	}
+
+	@Override
+	public List<Foodtype> getFoodType(int currentPage) throws SQLException {
+		// TODO Auto-generated method stub
+		return getSqlMapClientTemplate().queryForList("getFoodType", currentPage);
 	}
 
 }

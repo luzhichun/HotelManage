@@ -16,8 +16,9 @@
 	function alterSorder(food_id,price,orderId,node) {
 		var count=node.value;
 		var total=price*count;
+		node.parentNode.nextElementSibling.innerHTML="&yen;"+total;
+		$(this).next("#sun").html(total);
 		$(function(){
-			console.debug($(node).nextUntil("td").html(total));
 			$.ajax({
 				type:"POST",
 				url:"changeCount",
@@ -26,7 +27,7 @@
 				success:function(json){
 					var list = eval("(" + json + ")");
 					var totalPay=list.totalPay
-					$("#total").html(totalPay);
+					$("#total").html("&yen;"+totalPay);
 				}
 			});
 		});
@@ -88,20 +89,25 @@
 			<div id="dish_top">
 				<ul>
 					<li class="dish_num"></li>
-					<li><a href="clientOrderList.jsp"> <img
+					<li><a href="cart"> <img
 							src="style/images/call2.gif" />
 					</a></li>
 				</ul>
 			</div>
 
 			<div id="dish_2">
-				<ul>
+			<input id="btn_top" type="button" value="上一页" style="background:none">
+			<input id="currentPage" name="当前页" type="hidden" value="${FTcurrentPage}"/>
+			<input id="totalPage"name="总页数" type="hidden" value="${FTtotalPage}"/>
+				<ul id="typeList">
 					<c:if test="${ftl!=null }">
 						<c:forEach items="${ftl}" var="ft">
-							<li><a href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}">${ft.typename}</a></li>
+							<li><a
+								href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}&&FFcurrentPage=1&&type=1">${ft.typename}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
+				<input id="btn_foot"  type="button" value="下一页" style="background:none">
 			</div>
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
@@ -116,7 +122,7 @@
 							<td><input type="submit" id="sub" value="" /></td>
 						</tr>
 						<tr>
-							<td><a href="menus?foodName=${null}"> <img src="style/images/look.gif" />
+							<td><a href="menus?foodName=${null}&&type=0"> <img src="style/images/look.gif" />
 							</a></td>
 						</tr>
 					</table>

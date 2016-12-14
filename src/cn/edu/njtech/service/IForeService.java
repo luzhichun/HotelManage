@@ -5,6 +5,7 @@ import java.util.Map;
 
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.entity.Food;
+import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
@@ -38,4 +39,7 @@ public interface IForeService {
 	public List<OrderDetail> selectOrderDetailById(int id);
 
 	public int updateOrder(Orders o);
+	public int getFood();
+	public int getFoodByFoodType(int id);
+	public List<Foodtype> getFoodType(int currentPage);
 }

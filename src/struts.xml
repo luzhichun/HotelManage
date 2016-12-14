@@ -112,6 +112,11 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		<action name="getFoodType" class="ForeMenuAction" method="getFoodType">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 		<action name="deleteDetail" class="ForeMenuAction" method="deleteDetail" >
 			<result name="success" type="redirect">cart</result>
 		</action>
