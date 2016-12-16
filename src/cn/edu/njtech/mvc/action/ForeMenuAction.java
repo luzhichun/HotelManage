@@ -200,7 +200,7 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		if(foodName==null){
 			foodName="";
 		}
-		System.out.println(foodName);
+		System.out.println(foodName+"11111");
 		Page page=new Page(1, 6);
 		page.setCurrentPage(FFcurrentPage);
 		map.put("foodName", foodName);
@@ -239,6 +239,9 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		Food food=foreService.selectByFoodId(foodId);
 		foreSession.put("sFood", food);
 		System.out.println(food);
+		return SUCCESS;
+	}
+	public String addFoodByShopping(){
 		return SUCCESS;
 	}
 	public String createOrderDetail(){
