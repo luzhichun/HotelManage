@@ -70,16 +70,16 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		session.put("name", name);
 		session.put("DcurrentPage", currentPage);
 		session.put("DtotalPage", page.getTotalPage());
-		System.out.println(page.getTotalPage());
+//		System.out.println(page.getTotalPage());
 		return "boardList";
 	}
 	public String addTable() throws Exception{
 		Dinnertable dt=new Dinnertable();
 		map.put("tableName", dinnerTable.getTableName());
 		List<Dinnertable> list=dinnerTableService.selectAll(map);
-		System.out.println(tableName+"1231");
-		System.out.println(list+"123qw1");
-		System.out.println(dinnerTable.getTableName()+"11111");
+//		System.out.println(tableName+"1231");
+//		System.out.println(list+"123qw1");
+//		System.out.println(dinnerTable.getTableName()+"11111");
 		if(list.size()>0){
 			return ERROR;
 		}
@@ -100,7 +100,7 @@ public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinn
 		if(dinnerTableService.deleteTable(dinnerTable.getTableId())>0){
 			return SUCCESS;
 		}else{
-			System.out.println("shanchushibai");
+//			System.out.println("shanchushibai");
 			return ERROR;
 		}
 	}

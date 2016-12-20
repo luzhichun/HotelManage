@@ -161,23 +161,26 @@
 			</div>
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
-				<form action="menus" method="post">
-					<table width="166px">
+				
+				<table width="166px">
+					<form action="menus" method="post">
 						<tr>
-							<td><input type="text" id="dish_name" name="foodName"
-								class="select_value" /> <input type="hidden" value="selectFood"
+							<td><input type="text" id="dish_name" name="key"
+								class="select_value" value="${foodName}"/> 
+								<input type="hidden" value="selectFood"
 								name="method"></td>
 						</tr>
 						<tr>
-							<td><input type="submit" id="sub" value="" /></td>
+							<td><input type="submit" id="sub" value="" name="f"/></td>
 						</tr>
+					
+					</form>
 						<tr>
-							<td><a href="menus?foodName=${null}&&type=0"> <img
+							<td><a href="menus?key=${null}&&type=0"> <img
 									src="style/images/look.gif" />
 							</a></td>
 						</tr>
 					</table>
-				</form>
 			</div>
 		</div>
 

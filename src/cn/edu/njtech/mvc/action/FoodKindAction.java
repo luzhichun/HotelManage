@@ -167,7 +167,6 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 	public String addFood() throws Exception {
 		uploadFile();
 		food.setImg(fileFileName);
-		System.out.println(food);
 		if (foodService.addFood(food) > 0) {
 			return SUCCESS;
 		} else {
@@ -205,15 +204,12 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 	}
 
 	public String updateFood() throws Exception {
-		System.out.println("filen" + fileFileName);
-		System.out.println("imageName" + imageName);
 		if (fileFileName != imageName && fileFileName != null) {
 			uploadFile();
 			food.setImg(fileFileName);
 		} else {
 			food.setImg(imageName);
 		}
-		System.out.println(food);
 		if (foodService.updateFood(food) > 0) {
 			return SUCCESS;
 		} else {
@@ -240,10 +236,10 @@ public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 				"/upload");
 		InputStream is = new FileInputStream(file);
 		OutputStream os = new FileOutputStream(new File(root, fileFileName));
-		System.out.println("fileFileName: " + fileFileName);
-		// 因为file是存放在临时文件夹的文件，我们可以将其文件名和文件路径打印出来，看和之前的fileFileName是否相同
-		System.out.println("file: " + file.getName());
-		System.out.println("file: " + file.getPath());
+//		System.out.println("fileFileName: " + fileFileName);
+//		// 因为file是存放在临时文件夹的文件，我们可以将其文件名和文件路径打印出来，看和之前的fileFileName是否相同
+//		System.out.println("file: " + file.getName());
+//		System.out.println("file: " + file.getPath());
 		byte[] buffer = new byte[500];
 		int length = 0;
 		while (-1 != (length = is.read(buffer))) {

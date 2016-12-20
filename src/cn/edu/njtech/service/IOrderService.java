@@ -14,4 +14,5 @@ public interface IOrderService {
 	public int UpdateOrderById(Orders o);
 	public int deleteOrderDetailById(int id);
 	public List<Orders> getOrderTable(int id);
+	public int getNum();
 }

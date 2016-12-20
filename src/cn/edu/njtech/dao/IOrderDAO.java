@@ -15,4 +15,5 @@ public interface IOrderDAO {
 	public int UpdateOrderById(Orders o)throws SQLException;
 	public int deleteOrderDetailById(int id)throws SQLException;
 	public List<Orders> getOrderTable(int id)throws SQLException;
+	public int getNum();
 }

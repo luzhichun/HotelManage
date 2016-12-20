@@ -69,6 +69,51 @@
 		</table>
 		<!-- 其他功能超链接 -->
 		<div id="TableTail" align="center"></div>
+		<div class="FunctionButton">
+				<a href="orderList?currentPage=1">首页</a>
+		</div>
+			<c:choose>
+				<c:when test="${DcurrentPage>1}">
+					<div class="FunctionButton">
+						<a href="orderList?currentPage=${DcurrentPage-1}">上一页</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="FunctionButton">
+						<a href="#">上一页</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="1" end="${DtotalPage}" var="p">
+				<c:choose>
+					<c:when test="${p==DcurrentPage}">
+						<div class="FunctionButton">
+							<a href="orderList?currentPage=${p}"
+								style="background: #FFF; border: #89bdd8 solid 1px; color: #067db5">${p}</a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="FunctionButton">
+							<a href="orderList?currentPage=${p}">${p}</a>
+						</div>
+					</c:otherwise>
+				</c:choose>>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${DcurrentPage<DtotalPage}">
+					<div class="FunctionButton">
+						<a href="orderList?currentPage=${DcurrentPage+1}">下一页</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="FunctionButton">
+						<a href="#">下一页</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			<div class="FunctionButton">
+				<a href="orderList?currentPage=${DtotalPage}">尾页</a>
+			</div>
 	</div>
 </body>
 </html>
