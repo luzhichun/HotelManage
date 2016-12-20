@@ -5,11 +5,10 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style/css/index.css" />
 <script type="text/javascript" src="style/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="style/js/page_common.js"></script>
 <script type="text/javascript">
 	 // 删除菜品项
 	function removeSorder(food_id,orderId) {
-		console.debug(food_id);
-		console.debug(orderId);
 		window.location.href = "deleteDetail?orderId="+orderId+"&food_id="+food_id;
 	}
 	// 修改菜品项数量

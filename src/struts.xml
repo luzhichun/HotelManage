@@ -102,12 +102,17 @@
 			<result name="success" type="redirect">wdetail/caixiangxi.jsp</result>
 		</action>
 		<action name="clientCart" class="ForeMenuAction" method="createOrderDetail" >
-			<result name="success" type="redirect">cart</result>
+			<result name="success" type="redirect">menus</result>
 		</action>
 		<action name="cart" class="ForeMenuAction" method="dealOrderDetail" >
 			<result name="success" type="redirect">wdetail/clientCart.jsp</result>
 		</action>
 		<action name="changeCount" class="ForeMenuAction" method="changeCount">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="addFoodByShopping" class="ForeMenuAction" method="createOrderDetail">
 			<result name="success" type="json">
 				<param name="root">result</param>
 			</result>

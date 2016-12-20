@@ -1,10 +1,8 @@
 package cn.edu.njtech.mvc.action;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -13,7 +11,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import cn.edu.njtech.entity.User;
 import cn.edu.njtech.service.IUserService;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 public class LoginAction extends ActionSupport implements ModelDriven<User> ,SessionAware{
