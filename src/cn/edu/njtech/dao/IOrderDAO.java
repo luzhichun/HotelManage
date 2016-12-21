@@ -8,6 +8,18 @@ import cn.edu.njtech.common.Page;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
+/**
+ * 
+ * FileName: IOrderDAO
+ * 
+ * @Description: 订单DAO
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IOrderDAO {
 	public List<Orders> getOrder(int id)throws SQLException;
 	public List<Orders> selectAllOrder(Page page)throws SQLException;

@@ -7,6 +7,19 @@ import cn.edu.njtech.common.Page;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
+
+/**
+ * 
+ * FileName: IOrderService
+ * 
+ * @Description: 订单Service接口
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IOrderService {
 	public List<Orders> getOrder(int id);
 	public List<Orders> selectAllOrder(Page page);

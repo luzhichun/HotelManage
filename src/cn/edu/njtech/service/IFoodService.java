@@ -7,6 +7,19 @@ import java.util.Map;
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 
+
+/**
+ * 
+ * FileName: IFoodService
+ * 
+ * @Description: 菜系以及菜品Service接口
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IFoodService {
 	public List<Foodtype> selectAllFoodType(String name);
 	public int addFoodType(Foodtype ft);

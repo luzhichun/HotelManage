@@ -9,6 +9,18 @@ import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.service.IFoodService;
 
+/**
+ * 
+ * FileName: FoodServiceImpl
+ * 
+ * @Description: 菜系以及菜品Service接口实现类
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class FoodServiceImpl implements IFoodService {
 	private IFoodDAO dao;
 	

@@ -13,6 +13,18 @@ import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
+/**
+ * 
+ * FileName: ForeDAOImpl
+ * 
+ * @Description: 前台页面DAO实现类
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class ForeDAOImpl extends SqlMapClientDaoSupport implements IForeDAO{
 	private IForeDAO foreDao;
 	

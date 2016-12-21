@@ -11,6 +11,19 @@ import cn.edu.njtech.service.IFoodService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+
+/**
+ * 
+ * FileName: FoodTypeAction
+ * 
+ * @Description: 菜系Action
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class FoodTypeAction extends ActionSupport implements ModelDriven<Foodtype>,SessionAware{
 	
 	private IFoodService foodService;

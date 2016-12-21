@@ -13,6 +13,19 @@ import cn.edu.njtech.service.IUserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
+/**
+ * 
+ * FileName: LoginAction
+ * 
+ * @Description: 登录Action
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class LoginAction extends ActionSupport implements ModelDriven<User> ,SessionAware{
 	public IUserService userService;
 	private User u=new User();

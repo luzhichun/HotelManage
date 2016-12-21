@@ -5,6 +5,19 @@ import java.util.Map;
 
 import cn.edu.njtech.entity.Dinnertable;
 
+
+/**
+ * 
+ * FileName: IDinnerTableService
+ * 
+ * @Description: 餐桌Service接口
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IDinnerTableService {
 	public List<Dinnertable> selectAll(Map<String,Object> map);
 	public int addTable(Dinnertable dt);

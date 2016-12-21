@@ -14,6 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 
+ * FileName: EncodingFilter
+ * 
+ * @Description: 字节码控制器
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class EncodingFilter implements Filter {
 	private String charset= "" ; 
 	public void init(FilterConfig filterConfig) throws ServletException {

@@ -12,6 +12,18 @@ import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
+/**
+ * 
+ * FileName: IForeDAO
+ * 
+ * @Description: 前台页面DAO
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IForeDAO {
 	public List<Dinnertable> getFreeTable(int currentPage)throws SQLException;
 	public int getFreeDinnerNum()throws SQLException;

@@ -8,6 +8,19 @@ import cn.edu.njtech.dao.IDinnerTableDAO;
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.service.IDinnerTableService;
 
+
+/**
+ * 
+ * FileName: DinnerTableServiceImpl
+ * 
+ * @Description: 餐桌Service接口实现类
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class DinnerTableServiceImpl implements IDinnerTableService{
 	private IDinnerTableDAO dinnerTableDao;
 	

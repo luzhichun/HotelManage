@@ -9,6 +9,18 @@ import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
+/**
+ * 
+ * FileName: IForeService
+ * 
+ * @Description: 前台页面Service接口
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IForeService {
 	public List<Dinnertable> getFreeTable(int currentPage);
 

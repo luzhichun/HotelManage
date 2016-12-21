@@ -13,6 +13,18 @@ import cn.edu.njtech.service.IDinnerTableService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+/**
+ * 
+ * FileName: DinnerTableAction
+ * 
+ * @Description: 餐桌Action
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class DinnerTableAction extends ActionSupport implements ModelDriven<Dinnertable>,SessionAware{
 	private IDinnerTableService dinnerTableService;
 	private Map<String , Object> session;

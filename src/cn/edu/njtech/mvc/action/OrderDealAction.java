@@ -14,6 +14,18 @@ import cn.edu.njtech.service.IOrderService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 
+ * FileName: OrderDealAction
+ * 
+ * @Description: 订单详细Action
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class OrderDealAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> orderSession;
 	private IOrderService orderService;

@@ -12,6 +12,19 @@ import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 import cn.edu.njtech.service.IForeService;
 
+
+/**
+ * 
+ * FileName: ForeServiceImpl
+ * 
+ * @Description: 前台页面Service接口实现类
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class ForeServiceImpl implements IForeService {
 	private IForeDAO foreDao;
 

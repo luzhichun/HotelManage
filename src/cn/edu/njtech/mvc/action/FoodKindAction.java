@@ -23,6 +23,19 @@ import cn.edu.njtech.service.IFoodService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+
+/**
+ * 
+ * FileName: FoodKindAction
+ * 
+ * @Description: 菜品Action
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class FoodKindAction extends ActionSupport implements ModelDriven<Food>,
 		SessionAware {
 	// 注意，file并不是指前端jsp上传过来的文件本身，而是文件上传过来存放在临时文件夹下面的文件

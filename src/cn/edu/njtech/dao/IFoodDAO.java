@@ -7,6 +7,19 @@ import java.util.Map;
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 
+
+/**
+ * 
+ * FileName: IFoodDAO
+ * 
+ * @Description: 菜系以及菜品DAO
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public interface IFoodDAO {
 	public List<Foodtype> selectAllFoodType(String name)throws SQLException;
 	public int addFoodType(Foodtype ft)throws SQLException;

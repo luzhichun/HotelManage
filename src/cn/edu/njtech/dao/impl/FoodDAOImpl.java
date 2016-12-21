@@ -11,6 +11,18 @@ import cn.edu.njtech.dao.IFoodDAO;
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 
+/**
+ * 
+ * FileName: FoodDAOImpl
+ * 
+ * @Description: 菜系以及菜品DAO实现类
+ * 
+ * @author: 倪志敏
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	private  IFoodDAO foodDao;
 	

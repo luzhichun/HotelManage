@@ -7,10 +7,18 @@ import java.util.Map;
 import cn.edu.njtech.entity.Dinnertable;
 
 
+
 /**
  * 
- * @author liumingliang
- *
+ * FileName: IDinnerTableDAO
+ * 
+ * @Description: 餐桌DAO
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public interface IDinnerTableDAO {
 	public List<Dinnertable> selectAll(Map<String,Object> map) throws SQLException;

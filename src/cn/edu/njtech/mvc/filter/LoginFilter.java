@@ -13,6 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.njtech.entity.User;
 
+
+/**
+ * 
+ * FileName: LoginFilter
+ * 
+ * @Description: 登录页面控制器
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class LoginFilter implements Filter {
 	@Override
 	public void destroy() {

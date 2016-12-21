@@ -1,6 +1,6 @@
 package cn.edu.njtech.common;
 
-//加密
+
 public class MD5 {
 
          /*

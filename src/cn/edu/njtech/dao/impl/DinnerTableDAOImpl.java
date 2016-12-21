@@ -9,6 +9,18 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import cn.edu.njtech.dao.IDinnerTableDAO;
 import cn.edu.njtech.entity.Dinnertable;
 
+/**
+ * 
+ * FileName: DinnerTableDAOImpl
+ * 
+ * @Description: 餐桌DAO实现类
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class DinnerTableDAOImpl extends SqlMapClientDaoSupport implements IDinnerTableDAO{
 
 	private IDinnerTableDAO dinnerTableDao;

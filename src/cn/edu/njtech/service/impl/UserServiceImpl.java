@@ -7,6 +7,18 @@ import cn.edu.njtech.dao.IUserDAO;
 import cn.edu.njtech.entity.User;
 import cn.edu.njtech.service.IUserService;
 
+/**
+ * 
+ * FileName: UserServiceImpl
+ * 
+ * @Description: 用户Service接口实现类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class UserServiceImpl implements IUserService {
 	private IUserDAO userDao;
 	

@@ -22,6 +22,19 @@ import cn.edu.njtech.service.IForeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+
+/**
+ * 
+ * FileName: ForeMenuAction
+ * 
+ * @Description: 前台页面Action
+ * 
+ * @author: 袁鑫磊
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDetail>, SessionAware{
 	private IForeService foreService;
 	private IFoodService foodService;

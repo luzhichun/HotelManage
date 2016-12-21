@@ -8,6 +8,18 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import cn.edu.njtech.dao.IUserDAO;
 import cn.edu.njtech.entity.User;
 
+/**
+ * 
+ * FileName: UserDAOImpl
+ * 
+ * @Description: 用户DAO实现类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
+ */
 public class UserDAOImpl extends SqlMapClientDaoSupport implements IUserDAO {
 
 	@Override
