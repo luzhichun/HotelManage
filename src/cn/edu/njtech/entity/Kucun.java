@@ -2,9 +2,17 @@ package cn.edu.njtech.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
 /**
- * kucun:
+ * 
+ * FileName: Kucun
+ * 
+ * @Description: 库存实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Kucun implements Serializable {
 

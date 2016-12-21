@@ -5,7 +5,16 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * orderdetail:
+ * 
+ * FileName: OrderDetail
+ * 
+ * @Description: 订单详细实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class OrderDetail implements Serializable {
 

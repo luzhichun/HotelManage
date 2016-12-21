@@ -6,7 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * dinnertable:
+ * 
+ * FileName: Dinnertable
+ * 
+ * @Description: 餐桌实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Dinnertable implements Serializable {
 

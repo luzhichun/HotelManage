@@ -10,7 +10,22 @@ import cn.edu.njtech.service.IUserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
+
+
+/**
+ * 
+ * FileName: RegisterAction
+ * 
+ * @Description: 注册管理Action
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/20
+ * 
+ * @version:1.0
+ */
 public class RegisterAction extends ActionSupport implements SessionAware{
+	
 	public IUserService userService;
 	private String name;
 	private int usertypeId;

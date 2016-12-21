@@ -4,8 +4,18 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
- * food:
+ * 
+ * FileName: Food
+ * 
+ * @Description: 菜品实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Food implements Serializable {
 

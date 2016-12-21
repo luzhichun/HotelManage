@@ -9,7 +9,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * orders:
+ * 
+ * FileName: Orders
+ * 
+ * @Description: 订单实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Orders implements Serializable {
 

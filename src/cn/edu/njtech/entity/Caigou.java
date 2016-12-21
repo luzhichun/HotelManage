@@ -3,10 +3,19 @@ package cn.edu.njtech.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+
 /**
- * caigou:
+ * 
+ * FileName: Caigou
+ * 
+ * @Description: 采购实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
- 
 public class Caigou implements Serializable {
 
 	private static final long serialVersionUID = 1L;

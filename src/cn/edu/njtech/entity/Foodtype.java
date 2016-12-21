@@ -6,7 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * foodtype:
+ * 
+ * FileName: Foodtype
+ * 
+ * @Description: 菜系实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Foodtype implements Serializable {
 

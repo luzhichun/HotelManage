@@ -4,7 +4,16 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * wuliaodan:
+ * 
+ * FileName: Wuliaodan
+ * 
+ * @Description: 物料单实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class Wuliaodan implements Serializable {
 

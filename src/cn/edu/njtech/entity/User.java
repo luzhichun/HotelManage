@@ -4,7 +4,16 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * user:
+ * 
+ * FileName: User
+ * 
+ * @Description: 用户实体类
+ * 
+ * @author: 刘明亮
+ * 
+ * @Createdate:2016/12/01
+ * 
+ * @version:1.0
  */
 public class User implements Serializable {
 
