@@ -31,4 +31,30 @@ public class UserServiceImpl implements IUserService {
 		return list;
 	}
 
+	@Override
+	public int registerUser(User user) {
+		// TODO Auto-generated method stub
+		int i=0;
+		try {
+			i=userDao.registerUser(user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public List<User> selectUserByName(String name) {
+		// TODO Auto-generated method stub
+		List<User> list=null;
+		try {
+			list=userDao.selectUserByName(name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

@@ -5,8 +5,18 @@
     <typeAlias alias="User" type="cn.edu.njtech.entity.User" />    
     <select id="selectUser" parameterClass="User" resultClass="User">
     	<!-- t_user是数据库的表名 -->
-       select * from user where name =#name#;
+       select * from user where name  like concat('%', #name#, '%')
     </select>
+     <select id="selectUsertypeByName" parameterClass="java.lang.String" resultClass="User">
+    	<!-- t_user是数据库的表名 -->
+       select * from user where name  =#name#
+    </select>
+    <insert id="insertUser" parameterClass="User" >
+		insert into user(name,pwd,usertypeId)values(#name#,#pwd#,#usertypeId#)
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+	</insert>
 	 <!--  
 	<insert id="saveUser" parameterClass="TUser">
 		insert into t_user(username,password,role)values(#username#,#password#,1)

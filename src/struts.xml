@@ -21,6 +21,22 @@
 		<action name="return" class="LoginAction" method="returnSystem">
 			<result name="success" type="redirect">index.jsp</result>
 		</action>
+		<!-- 注册action管理 -->
+		<action name="Register" class="RegisterAction" method="register">
+			<result name="success" type="redirect">login.jsp</result>
+			<result name="error" type="redirect">Register</result>
+		</action>
+		<action name="checkName" class="RegisterAction" method="checkName">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="error" type="redirect">login.jsp</result>
+		</action>
+		<action name="checkPwd" class="RegisterAction" method="checkPwd">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 		<!-- 餐桌管理action -->
 		<action name="Dinner" class="DinnerTableAction" method="showboardList">
 			<result name="boardList" type="redirect">/detail/boardList.jsp</result>

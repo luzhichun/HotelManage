@@ -16,4 +16,16 @@ public class UserDAOImpl extends SqlMapClientDaoSupport implements IUserDAO {
 		return getSqlMapClientTemplate().queryForList("selectUser", u);
 	}
 
+	@Override
+	public int registerUser(User user) throws SQLException {
+		// TODO Auto-generated method stub
+		return (int) getSqlMapClientTemplate().insert("insertUser", user);
+	}
+
+	@Override
+	public  List<User> selectUserByName(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return getSqlMapClientTemplate().queryForList("selectUsertypeByName", name);
+	}
+
 }
