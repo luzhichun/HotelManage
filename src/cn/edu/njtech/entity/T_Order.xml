@@ -13,6 +13,9 @@
 	<select id="getFreeTableNum" resultClass="java.lang.Integer">
 		select count(*)  from dinnerTable where tableStatus=0
 	</select>
+	<select id="getNum" resultClass="java.lang.Integer">
+		select count(*)  from orders 
+	</select>
 	<select id="showFoodMenu" parameterClass="java.util.Map" resultClass="Food">
 		select *  from food where foodName like concat('%', #foodName#, '%') limit #currentPage#,#pageSize#
 	</select>
@@ -20,7 +23,7 @@
 		select * from foodType limit #currentPage#,4
 	</select>
 	<select id="FoodSize" resultClass="java.lang.Integer">
-		select count(*) from food 
+		select count(*) from food where 1=1
 	</select>
 	<select id="FoodSizeByFoodType" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
 		select count(*) from food where foodType_id=#foodType_id#

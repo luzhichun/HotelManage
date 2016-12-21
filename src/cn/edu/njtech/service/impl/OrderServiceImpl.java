@@ -78,4 +78,15 @@ public class OrderServiceImpl implements IOrderService {
 		return null;
 	}
 
+	@Override
+	public int getNum() {
+		int result=0;
+		try {
+			result=orderDao.getNum();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

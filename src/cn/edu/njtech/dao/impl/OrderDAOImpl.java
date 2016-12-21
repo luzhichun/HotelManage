@@ -48,4 +48,10 @@ public class OrderDAOImpl extends SqlMapClientDaoSupport implements IOrderDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int getNum() {
+		return (int) getSqlMapClientTemplate().queryForList("getNum").get(0);
+	}
+	
 }

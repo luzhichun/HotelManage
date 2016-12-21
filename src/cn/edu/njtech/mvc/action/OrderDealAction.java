@@ -19,6 +19,14 @@ public class OrderDealAction extends ActionSupport implements SessionAware {
 	private IOrderService orderService;
 	private IForeService foreService;
 	private int ordersId;
+	private int currentPage;
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
 	Map<String,Object> map=new HashMap<String,Object>();
 	public int getOrdersId() {
 		return ordersId;
@@ -50,9 +58,16 @@ public class OrderDealAction extends ActionSupport implements SessionAware {
 		this.orderSession = arg0;
 	}
 	public String showOrderList(){
-		Page page=new Page(1, 10);
+		if(currentPage==0){
+			currentPage=1;
+		}
+		Page page = new Page(currentPage, 5);
+		int total = orderService.getNum();
+		page.setTotalPage((total - 1) / page.getPageSize() + 1);
 		List<Orders> list=orderService.selectAllOrder(page);
 		orderSession.put("orders", list);
+		orderSession.put("DcurrentPage", currentPage);
+		orderSession.put("DtotalPage", page.getTotalPage());
 		return SUCCESS;
 	}
 	public String showOrderDetailList(){
@@ -61,9 +76,9 @@ public class OrderDealAction extends ActionSupport implements SessionAware {
 		map.put("currentPage", page.getCurrentPage());
 		map.put("pageSize",page.getPageSize());
 		List<OrderDetail> list=orderService.showOrderDetail(map);
-		for (OrderDetail orderDetail : list) {
-			System.out.println(orderDetail);
-		}
+//		for (OrderDetail orderDetail : list) {
+//			System.out.println(orderDetail);
+//		}
 		orderSession.put("orderDetail", list);
 		return SUCCESS;
 	}
@@ -76,7 +91,7 @@ public class OrderDealAction extends ActionSupport implements SessionAware {
 		Orders o=new Orders();
 		o.setOrdersId(ordersId);
 		o.setTotalPrice(totalPay);
-		o.setOrderStatus(0);
+		o.setOrderStatus(1);
 		orderService.UpdateOrderById(o);
 		return SUCCESS;
 	}

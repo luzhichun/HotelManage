@@ -46,6 +46,14 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 	private int tableId;
 	private int OcurrentPage=1;
 	private String foodName;
+	private String key;
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
 	private int foodtypeid;
 	private int foodId;
 	private int oid;
@@ -156,7 +164,7 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		List<Foodtype> foodTypeList=foreService.getFoodType(typePage.getCurrentPage());
 		int total=foodService.selectAllFoodType("").size();
 		foreSession.put("FTtotalPage",(total-1)/typePage.getPageSize()+1);
-		System.out.println();
+//		System.out.println();
 		foreSession.put("FTcurrentPage", FTcurrentPage);
 		chatroom.put("list", foodTypeList);
 		JSONObject jo = JSONObject.fromObject(chatroom);
@@ -164,14 +172,12 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		return SUCCESS;
 	}
 	public String menusList(){
-		System.out.println(tableId);
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
 		String date=sdf.format(new Date());
 		//判断餐桌的状态 要是餐桌的状态空闲就更新
 		Dinnertable checkDt=foreService.selectByTableId(tableId);
 		if(checkDt==null){
 			//更新餐桌
-			System.out.println("11111");
 			Dinnertable dt=new Dinnertable();
 			dt.setTableId(tableId);
 			dt.setOrderDate(date);
@@ -182,7 +188,6 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		Orders checkO=foreService.selectordersByTableId(tableId);
 		if(checkO==null){
 			//创建order
-			System.out.println("12121");
 			Orders o=new Orders();
 			o.setOrderDate(date);
 			o.setTableId(tableId);
@@ -196,14 +201,14 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		foreSession.put("FTtotalPage",(total-1)/typePage.getPageSize()+1);
 		foreSession.put("FTcurrentPage", FTcurrentPage);
 		foreSession.put("ftl", foodTypeList);
-		Map<String,Object>map=new HashMap<String, Object>();
-		if(foodName==null){
-			foodName="";
+		Map<String,Object> map=new HashMap<String, Object>();
+		String keyword=key;
+		if(keyword==null){
+			keyword="";
 		}
-		System.out.println(foodName+"11111");
 		Page page=new Page(1, 6);
 		page.setCurrentPage(FFcurrentPage);
-		map.put("foodName", foodName);
+		map.put("foodName", keyword);
 		map.put("currentPage",page.getCurrentPage());
 		map.put("pageSize",page.getPageSize());
 		List<Food> foodList=foreService.showFoodMenu(map);
@@ -213,6 +218,7 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		foreSession.put("foodList", foodList);
 		foreSession.put("FFcurrentPage",FFcurrentPage);
 		foreSession.put("type",type);
+		foreSession.put("foodName",keyword);
 		return SUCCESS;
 	}
 	public String menusByType(){
@@ -238,10 +244,6 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 	public String foodInformation(){
 		Food food=foreService.selectByFoodId(foodId);
 		foreSession.put("sFood", food);
-		System.out.println(food);
-		return SUCCESS;
-	}
-	public String addFoodByShopping(){
 		return SUCCESS;
 	}
 	public String createOrderDetail(){
@@ -278,7 +280,7 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		return SUCCESS;
 	}
 	public String changeCount(){
-		System.out.println(od);
+//		System.out.println(od);
 		foreService.updateDetail(od);
 		List<OrderDetail> odlist=foreService.selectOrderDetailById(od.getOrderId());
 		totalPay=0;
@@ -292,7 +294,6 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		return SUCCESS;
 	}
 	public String deleteDetail(){
-		System.out.println(od);
 		foreService.deleteDetail(od);
 		return SUCCESS;
 	}
@@ -307,6 +308,7 @@ public class ForeMenuAction extends ActionSupport implements ModelDriven<OrderDe
 		foreSession.put("totalPay", totalPay);
 		return SUCCESS;
 	}
+	
 	public String jiezhang(){
 		Orders o=new Orders();
 		o.setOrdersId(oid);
