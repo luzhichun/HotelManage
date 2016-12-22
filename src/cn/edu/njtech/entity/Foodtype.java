@@ -22,17 +22,17 @@ public class Foodtype implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * foodTypeId:
+	 * foodTypeId:菜系ID
 	 */
 	private int foodtypeid;
 
 	/**
-	 * typeName:
+	 * typeName:菜系名称
 	 */
 	private String typename;
 
 	/**
-	 * food:
+	 * food:菜系
 	 */
 	private Set<Food> foodSet = new HashSet<Food>(0);
 

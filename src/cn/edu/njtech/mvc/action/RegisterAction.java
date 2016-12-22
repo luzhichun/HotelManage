@@ -26,35 +26,15 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class RegisterAction extends ActionSupport implements SessionAware{
 	
-	public IUserService userService;
-	private String name;
-	private int usertypeId;
-	private String pwd;
-	private String position;
-	public String checkName;
-	public String cname;
-	public String result;
-	public String checkPwdName;
-	public String cpwd;
+	public IUserService userService;//创建服务
+	private String name;//用户名称
+	private int usertypeId;//用户类型
+	private String pwd;//密码
+	private String position;//职位
+	public String checkName;//用户名称检验
+	public String result;//结果
 	
 	
-	
-	public String getCpwd() {
-		return cpwd;
-	}
-
-	public void setCpwd(String cpwd) {
-		this.cpwd = cpwd;
-	}
-
-	public String getCheckPwdName() {
-		return checkPwdName;
-	}
-
-	public void setCheckPwdName(String checkPwdName) {
-		this.checkPwdName = checkPwdName;
-	}
-
 	public String getResult() {
 		return result;
 	}
@@ -63,13 +43,6 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 		this.result = result;
 	}
 
-	public String getCname() {
-		return cname;
-	}
-
-	public void setCname(String cname) {
-		this.cname = cname;
-	}
 
 	public String getCheckName() {
 		return checkName;
@@ -104,7 +77,7 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 	}
 
 
-	User u=new User();
+	User u=new User();//创建User对象
 	public String getName() {
 		return name;
 	}
@@ -144,63 +117,55 @@ public class RegisterAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> getSession() {
 		return session;
 	}
+	
+	/**						
+	
+	* 注册时调用此方法	，获取注册的参数，名称、密码、用户类型					
+							
+	* @return String				
+							
+	* @throws Exception 				
+							
+	*/						
+
 	public String register() throws Exception{
-		u.setName(name);
-		u.setPwd(pwd);
-		u.setUsertype(usertypeId);
-		u.setPosition(position);
-		System.out.println(u);
-		if(userService.registerUser(u)>0){
-//			HttpServletResponse response = ServletActionContext.getResponse();			
-//			response.setContentType("text/html; charset=UTF-8"); //转码
-//			PrintWriter out = response.getWriter();
-//			out.flush();
-//			out.println("<script>");
-//			out.println("alert('您已成功注册，请登陆！');");
-//			out.println("</script>");
-			return SUCCESS;
+		u.setName(name);//获取名称
+		u.setPwd(pwd);//获取 密码
+		u.setUsertype(usertypeId);//获取用户类型
+		if(userService.registerUser(u)>0){//根据user对象查询结果，如果结果大于0 ，则表示数据插入成功
+			return SUCCESS;//如果数据插入成功，返回SUCCESS
 		}else{
-			return ERROR;
+			return ERROR;//否则返回 ERROR
 			}
 		
 	}
+	/**						
+	
+	* 注册时检测用户名是否已经存在					
+							
+	*						
+							
+	* @param checkName,获取输入的名称					
+							
+	* @return String	
+							
+	*/						
 
 	public String checkName() {
 		Map<String, Object> chatroom = new HashMap<String, Object>();
-		
-			List<User> list = userService.selectUserByName(checkName);
-			for(int i =0;i<list.size();i++){
-				System.out.println(list.get(i));
-			}
+			List<User> list = userService.selectUserByName(checkName);//根据输入 的名字调用selectUserByName方法，查询结果放入list中
 			if (checkName.length() == 0) {
-				chatroom.put("result", "登录名不能为空");
+				chatroom.put("result", "登录名不能为空");//如果输入名称长度为0，提示登录名不能为空
 			} else {
 				if (list.size() > 0) {
-					chatroom.put("result", "登录名已经存在");
+					chatroom.put("result", "登录名已经存在");//如果list长度大于0，则用户名已经存在
 				} 
 			}
-		
 		JSONObject jo = JSONObject.fromObject(chatroom);
 		this.result = jo.toString();
 		return SUCCESS;
 	}
-	public String checkPwd() {
-		Map<String, Object> chatroom = new HashMap<String, Object>();
-		System.out.println(checkPwdName);
-		System.out.println(cpwd);
-		
-			if (!checkPwdName.trim().equals(cpwd.trim())) {
-				chatroom.put("result", "两次输入不同，密码不可用");
-			}
-			if (checkPwdName.length() == 0) {
-				chatroom.put("result", "密码不能为空");
-			} else{
-				chatroom.put("result", "两次输入相同，密码可用");
-			}
-		JSONObject jo = JSONObject.fromObject(chatroom);
-		this.result = jo.toString();
-		return SUCCESS;
-	}
+	
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub

@@ -21,22 +21,22 @@ public class OrderDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * orderDetailId:
+	 * orderDetailId:订单详细ID
 	 */
 	private int orderDetailId;
 
 	/**
-	 * foodCount:
+	 * foodCount:菜品数量
 	 */
 	private int foodCount;
 
 	/**
-	 * orders:
+	 * orders:订单
 	 */
 	private int orderId;
 
 	/**
-	 * food:
+	 * food:菜品
 	 */
 	private int food_id;
 	private String foodName;

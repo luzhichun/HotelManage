@@ -22,42 +22,42 @@ public class Food implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * foodId:
+	 * foodId:菜品ID
 	 */
 	private int foodId;
 
 	/**
-	 * foodName:
+	 * foodName:菜品名称
 	 */
 	private String foodName;
 
 	/**
-	 * price:
+	 * price:价格
 	 */
 	private double price;
 
 	/**
-	 * mprice:
+	 * mprice:会员价格
 	 */
 	private double mprice;
 
 	/**
-	 * remark:
+	 * remark:评价
 	 */
 	private String remark;
 
 	/**
-	 * img:
+	 * img:图片
 	 */
 	private String img;
 
 	/**
-	 * foodtype:
+	 * foodtype:所属菜系
 	 */
 	private int foodType_id;
 
 	/**
-	 * orderdetail:
+	 * orderdetail:订单详细
 	 */
 	private String foodType;
 	

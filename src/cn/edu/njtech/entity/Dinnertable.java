@@ -22,26 +22,26 @@ public class Dinnertable implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * tableId:
+	 * tableId:餐桌ID
 	 */
 	private int tableId;
 
 	/**
-	 * tableName:
+	 * tableName:餐桌名称
 	 */
 	private String tableName;
 
 	/**
-	 * tableStatus:
+	 * tableStatus:餐桌状态
 	 */
 	private int tableStatus;
 
 	/**
-	 * orderDate:
+	 * orderDate:预定日期
 	 */
 	private String orderDate;
 	/**
-	 * orders:
+	 * orders:订单
 	 */
 	private Set<Orders> ordersSet = new HashSet<Orders>(0);
 

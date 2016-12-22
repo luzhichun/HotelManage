@@ -20,57 +20,57 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ä¸»é”®ID:ä¸»é”®ID
+	 * 用户ID
 	 */
 	private int id;
 
 	/**
-	 * å§“å��:å§“å��
+	 * 用户名称
 	 */
 	private String name;
 
 	/**
-	 * å¯†ç �:å¯†ç �
+	 * 密码
 	 */
 	private String pwd;
 
 	/**
-	 * ç”µè¯�:ç”µè¯�
+	 * 用户电话
 	 */
 	private String tel;
 
 	/**
-	 * åœ°åŒº:åœ°åŒº
+	 * 用户地址
 	 */
 	private String addr;
 
 	/**
-	 * é‚®ç®±:é‚®ç®±
+	 * 用户邮箱
 	 */
 	private String email;
 
 	/**
-	 * å¤´åƒ�:å¤´åƒ�
+	 * 用户照片
 	 */
 	private String picture;
 
 	/**
-	 * å¹´é¾„:å¹´é¾„
+	 * 用户年龄
 	 */
 	private String age;
 
 	/**
-	 * å¤‡æ³¨:å¤‡æ³¨
+	 * 用户评价
 	 */
 	private String remark;
 
 	/**
-	 * è�Œä½�:è�Œä½�
+	 * 用户职位
 	 */
 	private String position;
 
 	/**
-	 * usertype:
+	 * 用户类型
 	 */
 	private int usertypeId;
 

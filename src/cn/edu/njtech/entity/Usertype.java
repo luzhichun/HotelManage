@@ -22,17 +22,17 @@ public class Usertype implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 主键ID
+	 * 用户类型主键ID
 	 */
 	private int id;
 
 	/**
-	 * 类型
+	 * 用户类型名称
 	 */
 	private String name;
 
 	/**
-	 * user:
+	 * 用户
 	 */
 	private Set<User> userSet = new HashSet<User>(0);
 

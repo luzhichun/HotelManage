@@ -25,33 +25,33 @@ public class Orders implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ordersId:
+	 * ordersId:订单ID
 	 */
 	private int ordersId;
 
 	/**
-	 * orderDate:
+	 * orderDate:订单日期
 	 */
 	private String orderDate;
 
 	/**
-	 * totalPrice:
+	 * totalPrice:总价
 	 */
 	private double totalPrice;
 
 	/**
-	 * orderStatus:
+	 * orderStatus:订单状态
 	 */
 	private int orderStatus;
 
 	/**
-	 * dinnertable:
+	 * dinnertable:订单餐桌
 	 */
 	private int tableId;
 	private String tableName;
 
 	/**
-	 * orderdetail:
+	 * orderdetail:订单详细
 	 */
 	private Set<OrderDetail> orderdetailSet = new HashSet<OrderDetail>(0);
 

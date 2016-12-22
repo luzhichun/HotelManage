@@ -27,9 +27,9 @@ import com.opensymphony.xwork2.ModelDriven;
  * @version:1.0
  */
 public class LoginAction extends ActionSupport implements ModelDriven<User> ,SessionAware{
-	public IUserService userService;
-	private User u=new User();
-	public List<User> list;
+	public IUserService userService;//创建User服务
+	private User u=new User();//创建user对象
+	public List<User> list;//创建user的list
 	public Map<String,Object>session;
 	
 	public IUserService getUserService() {
@@ -39,9 +39,22 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
+	
+	/**						
+	
+	* 登录时调用此方法，验证登录名和密码的正确性						
+							
+	*						
+							
+	* @return String					
+							
+	* @throws Exception				
+							
+	*/						
+							
 	public String login() throws Exception{
-		list=userService.getUser(u);
-		if(list.size()==0){
+		list=userService.getUser(u);//查询所有的用户
+		if(list.size()==0){//如果list的长度为0表示数据库中不存在该用户
 			HttpServletResponse response = ServletActionContext.getResponse();			
 			response.setContentType("text/html; charset=UTF-8"); //转码
 			PrintWriter out = response.getWriter();
@@ -55,7 +68,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 		if(getUser==null){
 			return ERROR;
 		}
-		if(getUser.getUsertype()==2){
+		if(getUser.getUsertype()==2){//如果用户类型是2，表示是顾客
 			return "fore";
 		}
 		if(u.getPwd().equals(getUser.getPwd())){
