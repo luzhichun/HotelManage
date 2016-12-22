@@ -11,7 +11,7 @@ import cn.edu.njtech.entity.User;
  * 
  * @Description: 用户Service接口
  * 
- * @author: 刘明亮
+ * @author:  袁鑫磊，刘明亮
  * 
  * @Createdate:2016/12/01
  * 

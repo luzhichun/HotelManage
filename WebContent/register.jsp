@@ -7,8 +7,6 @@
 	<meta charset="utf-8">
 	<title>注册</title>
 	<link rel="stylesheet" type="text/css" href="login/style/register-login.css">
-	<script type="text/javascript" src="detail/style/js/jquery-2.2.3.min.js"></script>
-	<script type="text/javascript" src="detail/style/js/checkRegister.js"></script>
 	<script type="text/javascript">
 	/*
 	$(function(){  
@@ -35,6 +33,15 @@
     }  
       */
 	</script>
+	<style type="text/css">
+		.cent-box-header .main-title{
+			width: 160px;
+			height: 74px;
+			margin: 0 auto;
+			background: url('login/images/register.png') no-repeat;
+			background-size: contain;
+		}
+	</style>
 </head>
 <body>
 <div id="box"></div>
@@ -121,6 +128,7 @@
 <script src='login/js/jquery.min.js' type="text/javascript"></script>
 <script src='login/js/layer/layer.js' type="text/javascript"></script>
 <script src='login/js/index.js' type="text/javascript"></script>
+<script type="text/javascript" src="login/js/checkRegister.js"></script>
 <script>
 	$('.imgcode').hover(function(){
 		layer.tips("看不清？点击更换", '.verify', {

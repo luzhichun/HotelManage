@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ModelDriven;
  * 
  * @Description: 登录Action
  * 
- * @author: 刘明亮
+ * @author: 袁鑫磊，刘明亮
  * 
  * @Createdate:2016/12/01
  * 

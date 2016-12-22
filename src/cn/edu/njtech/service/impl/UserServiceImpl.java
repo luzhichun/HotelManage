@@ -13,7 +13,7 @@ import cn.edu.njtech.service.IUserService;
  * 
  * @Description: 用户Service接口实现类
  * 
- * @author: 刘明亮
+ * @author:  袁鑫磊，刘明亮
  * 
  * @Createdate:2016/12/01
  * 
