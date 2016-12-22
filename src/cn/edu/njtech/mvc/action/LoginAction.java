@@ -2,59 +2,55 @@ package cn.edu.njtech.mvc.action;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
-
 import cn.edu.njtech.entity.User;
 import cn.edu.njtech.service.IUserService;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-
 /**
  * 
  * FileName: LoginAction
  * 
  * @Description: 登录Action
  * 
- * @author: 袁鑫磊，刘明亮
+ * @author: 袁鑫磊
  * 
  * @Createdate:2016/12/01
  * 
  * @version:1.0
  */
 public class LoginAction extends ActionSupport implements ModelDriven<User> ,SessionAware{
-	public IUserService userService;//创建User服务
-	private User u=new User();//创建user对象
-	public List<User> list;//创建user的list
-	public Map<String,Object>session;
-	
+	public IUserService userService;//用户service
+	private User u=new User();// 页面获取的用户封装的对象
+	public List<User> list;//搜索用的集合
+	public Map<String,Object>session;//存放用户的map集合
+	/**
+	 *  类方法的详细使用说明
+	 * 
+	 * @return userService
+	 */
 	public IUserService getUserService() {
 		return userService;
 	}
-
+	/**
+	 *  类方法的详细使用说明
+	 * 
+	 * @param userService
+	 */
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
-	
-	/**						
-	
-	* 登录时调用此方法，验证登录名和密码的正确性						
-							
-	*						
-							
-	* @return String					
-							
-	* @throws Exception				
-							
-	*/						
-							
+	/**
+	 *  类方法的详细使用说明
+	 * 
+	 * @return 返回页面跳转的结果
+	 * @throws 异常类型 Exception
+	 */
 	public String login() throws Exception{
-		list=userService.getUser(u);//查询所有的用户
-		if(list.size()==0){//如果list的长度为0表示数据库中不存在该用户
+		list=userService.getUser(u);
+		if(list.size()==0){
 			HttpServletResponse response = ServletActionContext.getResponse();			
 			response.setContentType("text/html; charset=UTF-8"); //转码
 			PrintWriter out = response.getWriter();
@@ -68,7 +64,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 		if(getUser==null){
 			return ERROR;
 		}
-		if(getUser.getUsertype()==2){//如果用户类型是2，表示是顾客
+		if(getUser.getUsertype()==2){
 			return "fore";
 		}
 		if(u.getPwd().equals(getUser.getPwd())){
@@ -78,6 +74,11 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> ,Ses
 			return ERROR;
 		}
 	}
+	/**
+	 *  类方法的详细使用说明
+	 * 
+	 * @return 返回页面跳转的结果
+	 */
 	public String returnSystem(){
 		session.remove("User");
 		return SUCCESS;

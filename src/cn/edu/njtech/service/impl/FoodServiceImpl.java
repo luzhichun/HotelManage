@@ -8,14 +8,13 @@ import cn.edu.njtech.dao.IFoodDAO;
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.service.IFoodService;
-
 /**
  * 
- * FileName: FoodServiceImpl
+ * FileName: IFoodServiceImpl
  * 
- * @Description: 菜系以及菜品Service接口实现类
+ * @Description: 菜IFoodServiceImpl
  * 
- * @author: 倪志敏
+ * @author: 倪志敏，袁鑫磊
  * 
  * @Createdate:2016/12/01
  * 

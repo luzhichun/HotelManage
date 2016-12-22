@@ -11,13 +11,11 @@ import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 import cn.edu.njtech.service.IForeService;
-
-
 /**
  * 
- * FileName: ForeServiceImpl
+ * FileName: IForeServiceImpl
  * 
- * @Description: 前台页面Service接口实现类
+ * @Description: 前台ServiceImpl
  * 
  * @author: 袁鑫磊
  * 

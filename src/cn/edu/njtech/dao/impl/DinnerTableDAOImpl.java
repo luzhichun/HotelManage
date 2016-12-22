@@ -8,12 +8,11 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 import cn.edu.njtech.dao.IDinnerTableDAO;
 import cn.edu.njtech.entity.Dinnertable;
-
 /**
  * 
- * FileName: DinnerTableDAOImpl
+ * FileName: IDinnerTableDAOImpl
  * 
- * @Description: 餐桌DAO实现类
+ * @Description: 餐桌DAOImpl
  * 
  * @author: 袁鑫磊
  * 

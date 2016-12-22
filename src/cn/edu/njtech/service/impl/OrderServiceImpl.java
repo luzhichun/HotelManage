@@ -10,19 +10,6 @@ import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 import cn.edu.njtech.service.IOrderService;
 
-
-/**
- * 
- * FileName: OrderServiceImpl
- * 
- * @Description: 订单Service接口实现类
- * 
- * @author: 袁鑫磊
- * 
- * @Createdate:2016/12/01
- * 
- * @version:1.0
- */
 public class OrderServiceImpl implements IOrderService {
 	private IOrderDAO orderDao;
 	

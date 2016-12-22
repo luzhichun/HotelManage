@@ -12,12 +12,11 @@ import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
-
 /**
  * 
- * FileName: ForeDAOImpl
+ * FileName: IForeDAOImpl
  * 
- * @Description: 前台页面DAO实现类
+ * @Description: 前台DAOImpl
  * 
  * @author: 袁鑫磊
  * 

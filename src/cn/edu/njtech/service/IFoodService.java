@@ -1,20 +1,18 @@
 package cn.edu.njtech.service;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
 
-
 /**
  * 
  * FileName: IFoodService
  * 
- * @Description: 菜系以及菜品Service接口
+ * @Description: 菜IFoodService
  * 
- * @author: 倪志敏
+ * @author: 倪志敏，袁鑫磊
  * 
  * @Createdate:2016/12/01
  * 

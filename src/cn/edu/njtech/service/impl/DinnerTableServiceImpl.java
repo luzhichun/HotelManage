@@ -7,13 +7,11 @@ import java.util.Map;
 import cn.edu.njtech.dao.IDinnerTableDAO;
 import cn.edu.njtech.entity.Dinnertable;
 import cn.edu.njtech.service.IDinnerTableService;
-
-
 /**
  * 
- * FileName: DinnerTableServiceImpl
+ * FileName: IDinnerTableServiceImpl
  * 
- * @Description: 餐桌Service接口实现类
+ * @Description: 餐桌ServiceImpl
  * 
  * @author: 袁鑫磊
  * 

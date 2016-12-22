@@ -1,12 +1,9 @@
 package cn.edu.njtech.dao.impl;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
-
 import cn.edu.njtech.dao.IFoodDAO;
 import cn.edu.njtech.entity.Food;
 import cn.edu.njtech.entity.Foodtype;
@@ -15,17 +12,17 @@ import cn.edu.njtech.entity.Foodtype;
  * 
  * FileName: FoodDAOImpl
  * 
- * @Description: 菜系以及菜品DAO实现类
+ * @Description: 菜系接口实现，菜品接口实现
  * 
- * @author: 倪志敏
+ * @author: 倪志敏，袁鑫磊
  * 
  * @Createdate:2016/12/01
  * 
  * @version:1.0
  */
-public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
-	private  IFoodDAO foodDao;
-	
+public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO {
+	private IFoodDAO foodDao;
+
 	public IFoodDAO getFoodDao() {
 		return foodDao;
 	}
@@ -37,9 +34,9 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	@Override
 	public List<Foodtype> selectAllFoodType(String name) throws SQLException {
 		// TODO Auto-generated method stub
-		Foodtype dt=new Foodtype();
+		Foodtype dt = new Foodtype();
 		dt.setTypename(name);
-		return getSqlMapClientTemplate().queryForList("selectfoodtype",dt);
+		return getSqlMapClientTemplate().queryForList("selectfoodtype", dt);
 	}
 
 	@Override
@@ -57,7 +54,7 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	@Override
 	public List<Foodtype> selectById(int id) throws SQLException {
 		// TODO Auto-generated method stub
-		return getSqlMapClientTemplate().queryForList("selectfoodtypeById",id);	
+		return getSqlMapClientTemplate().queryForList("selectfoodtypeById", id);
 	}
 
 	@Override
@@ -66,9 +63,10 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	}
 
 	@Override
-	public List<Food> selectAllFood(Map<String,Object> map) throws SQLException {
+	public List<Food> selectAllFood(Map<String, Object> map)
+			throws SQLException {
 		// TODO Auto-generated method stub
-		return getSqlMapClientTemplate().queryForList("selectAll",map);
+		return getSqlMapClientTemplate().queryForList("selectAll", map);
 	}
 
 	@Override
@@ -110,9 +108,8 @@ public class FoodDAOImpl extends SqlMapClientDaoSupport implements IFoodDAO{
 	@Override
 	public int getFoodNum(String name) throws SQLException {
 		// TODO Auto-generated method stub
-		return (int) getSqlMapClientTemplate().queryForList("getFoodNum", name).get(0);
+		return (int) getSqlMapClientTemplate().queryForList("getFoodNum", name)
+				.get(0);
 	}
-
-	
 
 }

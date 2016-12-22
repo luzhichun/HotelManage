@@ -12,18 +12,6 @@ import cn.edu.njtech.dao.IOrderDAO;
 import cn.edu.njtech.entity.OrderDetail;
 import cn.edu.njtech.entity.Orders;
 
-/**
- * 
- * FileName: OrderDAOImpl
- * 
- * @Description: 订单DAO实现类
- * 
- * @author: 袁鑫磊
- * 
- * @Createdate:2016/12/01
- * 
- * @version:1.0
- */
 public class OrderDAOImpl extends SqlMapClientDaoSupport implements IOrderDAO{
 	@Override
 	public List<Orders> getOrder(int id) throws SQLException {
