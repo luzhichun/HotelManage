@@ -195,9 +195,7 @@ public class ForeServiceImpl implements IForeService {
 		// TODO Auto-generated method stub
 		List<OrderDetail> list = null;
 		try {
-			System.out.println(od);
 			list = foreDao.getOrderDetailByOrderId(od);
-			System.out.println(list);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
