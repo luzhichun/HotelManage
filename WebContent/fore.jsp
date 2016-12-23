@@ -4,7 +4,7 @@
 <html>
 <head>
 <!-- 包含公共的JSP代码片段 -->
-<title>无线点餐平台</title>
+<title>选桌页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript"
 	src="wdetail/style/js/jquery-2.2.3.min.js"></script>
@@ -35,6 +35,9 @@
 	height: 47px;
 	text-align: center;
 	padding-top: 5px;
+}
+#pageSize:hover{
+	cursor:pointer;
 }
 </style>
 <script type="text/javascript">
@@ -90,7 +93,8 @@
 	<div class="index_all" style="text-align: center;">
 		<!--上面的背景层-->
 		<div>
-			<img src="wdetail/style/images/flower.gif" />
+			<!--img src="wdetail/style/images/flower.gif"  -->
+			<img src="wdetail/style/images/top01.png" />
 		</div>
 		<!--中间层-->
 		<div id="index_center">
@@ -102,7 +106,7 @@
 				<div id="index_centerleft"></div>
 				<!--菜单层的中间-->
 				<div class="bg_middle">
-					<img src="wdetail/style/images/index_menu.gif" border="0"
+					<img src="wdetail/style/images/topic01.png" border="0"
 						usemap="#Map" />
 					<map name="Map" id="Map">
 						<area shape="rect" coords="164,99,354,199" href="#" />
@@ -126,7 +130,8 @@
 
 		<!--下面的背景层-->
 		<div>
-			<img src="wdetail/style/images/flower.gif" />
+			<!--img src="wdetail/style/images/flower.gif"  -->
+			<img src="wdetail/style/images/bottom01.png" />
 		</div>
 	</div>
 </body>

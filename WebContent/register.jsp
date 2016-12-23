@@ -80,7 +80,7 @@
 				</div>
 				<span id="pwd_msg"></span>
 				<div >
-					<select name="usertypeId" style="width: 100%;height:35px;align:center">
+					<select id="options" name="usertypeId" style="width: 100%;height:35px;align:center">
 						<option   value="1" style="font-size:14px">管理员
 						</option>
 						<option   value="2">顾客
@@ -102,18 +102,6 @@
 				</div>-->
 			</div>
 				<div >已有账号？<a href="login.jsp" class=register>点击登录</a>
-		</div>
-
-		
-
-		<div class="remember clearfix">
-			<label class="remember-me"><span class="icon"><span class="zt"></span>
-			</span><input type="checkbox" name="remember-me" id="remember-me" class="remember-mecheck" checked>记住我</label>
-			<!--
-			<label class="forgot-password">
-				<a href="#">忘记密码？</a>
-			</label>
-		-->
 		</div>
 	</div>
 </div>

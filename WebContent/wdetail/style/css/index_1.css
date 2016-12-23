@@ -109,19 +109,20 @@ body,html{
 }
 #index_center{
 	width:1024px; 
-	background:url(img/middle_bg.gif);
+	background:url(img/bg01.png);
+	/*background:url(img/middle_bg.gif);*/
 }
 #index_centerleft{
 	width:113px;
 	height:300px;
-	background:url(img/middle_left.gif) no-repeat left center;
+	/*background:url(img/middle_left.gif) no-repeat left center;*/
 	float:left;
 }
 
 #index_centerright{
 	width:98px; 
 	height:300px; 
-	background:url(img/middle_left2.gif) no-repeat right center; 
+	/*background:url(img/middle_left2.gif) no-repeat right center; */
 	float:left 
 }
 #center_bottom{

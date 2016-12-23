@@ -87,9 +87,8 @@
 		<div id="dish_class">
 			<div id="dish_top">
 				<ul>
-					<li class="dish_num"></li>
 					<li><a href="cart"> <img
-							src="style/images/call2.gif" />
+							src="style/images/call01.png" />
 					</a></li>
 				</ul>
 			</div>
@@ -102,7 +101,7 @@
 					<c:if test="${ftl!=null }">
 						<c:forEach items="${ftl}" var="ft">
 							<li><a
-								href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}&&FFcurrentPage=1&&type=1">${ft.typename}</a></li>
+								href="menusByType?foodtypeid=${ft.foodtypeid}&&key=${null}&&FFcurrentPage=1&&type=1">${ft.typename}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
@@ -110,9 +109,9 @@
 			</div>
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
-				
+				<form action="menus" method="post">
 				<table width="166px">
-					<form action="menus" method="post">
+					
 						<tr>
 							<td><input type="text" id="dish_name" name="key"
 								class="select_value" value="${foodName}"/> 
@@ -123,13 +122,14 @@
 							<td><input type="submit" id="sub" value="" name="f"/></td>
 						</tr>
 					
-					</form>
+					
 						<tr>
 							<td><a href="menus?key=${null}&&type=0"> <img
-									src="style/images/look.gif" />
+									src="style/images/look01.png" />
 							</a></td>
 						</tr>
 					</table>
+					</form>
 			</div>
 		</div>
 

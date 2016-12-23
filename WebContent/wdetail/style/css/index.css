@@ -16,7 +16,8 @@ li{
 	
 }
 #all{
-	background:url(img/menubg.gif) no-repeat;
+	/*background:url(img/menubg.gif) no-repeat;*/
+	background:url(img/menubg01.png) no-repeat;
 	padding-top:90px;
 }
 #menu{
@@ -64,7 +65,7 @@ li{
 #foot{
 	width:668px;
 	height:42px;
-	background:url(img/rotation_bg.png);
+	background:url(img/rotation-bg01.png);
 	margin-left:10px;
 	margin-top:30px;
 	padding-left:70px;
@@ -121,6 +122,8 @@ li{
 }
 #dish_top{
 	height:100px;
+	margin-top:30px;
+	-webkit-margin-end:48px
 }
 #dish_top li{
 	list-style:none;
@@ -129,24 +132,17 @@ li{
 #dish_top img{
 	border:0px;
 }
-.dish_num{
-	background:url(img/btn2.gif);
-	width:55px;
-	height:39px;
-	text-align:center;
-	font-size:24px;
-	padding-top:10px;
-}
+
 #dish_2{
-	/*margin-top:95px;*/
+	margin-top:-30px;
 }
 #dish_2 a{
 	text-decoration:none;
-	font-size:36px;
-	color:#000;
+	font-size:30px;
+	color:#222323;
 }
 #dish_2 li{
-	background:url(img/btndish.gif);
+	background:url(img/btndish05.png);
 	width:164px;
 	height:47px;
 	text-align:center;
@@ -162,16 +158,23 @@ li{
 #dish_3 img{
 	border:0px;
 }
+#btn_top,#btn_foot{
+	margin-left:-34px;
+}
 .select_value{
 	width:166px;
-	background:url(img/right_input.gif);
+	background:#dddedf;
 	height:32px;
 	border:0px;
 	padding-left:10px;
 	padding-top:5px;
+	margin-top:26px;
 }
 #dish_3 tr{
 	height:60px;
+}
+#dish_3 tr img{
+	-webkit-margin-start:18px;
 }
 /*count页面的样式*/
 #count{
@@ -239,13 +242,13 @@ li{
 .btn_next{
 	width:163px;
 	height:50px;
-	background:url(img/btn_Bg.png);
+	background:url(img/btndish05.png);
 	display:block;
 	float:left;
 	color:#000;
 	font-size:24px;
 	text-align:center;
-	padding-top:10px;
+	padding-top:1px;
 	text-decoration:none;
 	margin-left:12px;
 	font-weight:bold;
@@ -273,7 +276,7 @@ li{
 	width:775px;
 	height:580px;
 	float:left;
-	background:url(img/dish_circle.gif) no-repeat 2px 3px;
+	background:url(img/dish_circle01.png) no-repeat 2px 3px;
 }
 #dish_f1  .dish_btn{
  background:url(img/order_left_corner_bg.png); 
@@ -296,10 +299,11 @@ li{
 	height:55px;
 }
 #sub{
-	background:url(img/select.gif);
+	background:url(img/select02.png);
 	width:132px;
 	height:27px;
 	border:0px;
+	-webkit-margin-start:22px;
 
 }
 

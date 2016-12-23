@@ -390,12 +390,13 @@ public class ForeMenuAction extends ActionSupport implements
 	 */
 	public String menusByType() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		if (foodName == null) {
-			foodName = "";
+		String keyword = key;
+		if (keyword == null) {
+			keyword = "";
 		}
 		Page page = new Page(1, 6);
 		page.setCurrentPage(FFcurrentPage);
-		map.put("foodName", foodName);
+		map.put("foodName", keyword);
 		map.put("currentPage", page.getCurrentPage());
 		map.put("pageSize", page.getPageSize());
 		map.put("foodType_id", foodtypeid);

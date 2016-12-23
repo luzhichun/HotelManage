@@ -100,7 +100,7 @@
     		color: #555;
 		}
 		.index-tab .index-slide-nav a:hover{
-			color: #0f88eb：
+			color: #0f88eb锛�
 			opacity: 1;
 		}
 		.index-tab .index-slide-nav a.active{
@@ -147,7 +147,7 @@
     		color: #666;
     		position: relative;
 		}
-		#password,#verify,#user,#password1{
+		#password,#verify,#user,#password1,#options{
 			border-top: 1px solid #e8e8e8;
 		}
 		.imgcode{

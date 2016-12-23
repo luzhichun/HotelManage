@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>登录</title>
+	<title>登录页面</title>
 	<link rel="stylesheet" type="text/css" href="login/style/register-login.css">
 </head>
 <body>

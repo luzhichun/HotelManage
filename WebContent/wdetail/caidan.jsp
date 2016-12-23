@@ -130,7 +130,7 @@
 									<c:otherwise>
 										<li><a href="menus?FFcurrentPage=${p}">${p}</a></li>
 									</c:otherwise>
-								</c:choose>>
+								</c:choose>
 					</c:forEach>
 						</ul>
 					</div>
@@ -174,7 +174,7 @@
 									<c:otherwise>
 										<li><a href="menusByType?FFcurrentPage=${p}">${p}</a></li>
 									</c:otherwise>
-								</c:choose>>
+								</c:choose>
 					</c:forEach>
 						</ul>
 					</div>
@@ -199,8 +199,8 @@
 			<i id="end"></i>
 			<div id="dish_top">
 				<ul>
-					<li class="dish_num"></li>
-					<li><a href="cart"> <img src="style/images/call2.gif" />
+					
+					<li><a href="cart"> <img src="style/images/call01.png" />
 					</a></li>
 
 				</ul>
@@ -216,7 +216,7 @@
 					<c:if test="${ftl!=null }">
 						<c:forEach items="${ftl}" var="ft">
 							<li><a
-								href="menusByType?foodtypeid=${ft.foodtypeid}&&foodName=${null}&&FFcurrentPage=1&&type=1">${ft.typename}</a></li>
+								href="menusByType?foodtypeid=${ft.foodtypeid}&&key=${null}&&FFcurrentPage=1&&type=1">${ft.typename}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
@@ -235,8 +235,8 @@
 							<td><input type="submit" id="sub" value="" /></td>
 						</tr>
 						<tr>
-							<td><a href="menus?foodName=${null}&&type=0"> <img
-									src="style/images/look.gif" />
+							<td><a href="menus?key=${null}&&type=0"> <img
+									src="style/images/look01.png" />
 							</a></td>
 						</tr>
 					</table>
